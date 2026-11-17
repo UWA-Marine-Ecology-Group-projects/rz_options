@@ -10,27 +10,36 @@ library(dplyr)
 library(readr)
 library(purrr)
 
+# Text uses en dashes and other non-ASCII characters: make sure R works in UTF-8 even if the server's locale is "C"
+if (!isTRUE(l10n_info()[["UTF-8"]])) invisible(try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE))
+
 # Shiny loads R/model.R automatically before this file; source it here only if that's switched off
-if (!exists("egg_lines")) source("R/model.R", local = TRUE)
+if (!exists("load_scenarios")) source("R/model.R", local = TRUE)
 
 # ---- Setup -------------------------------------------------------------------------------------------
 
-D  <- load_model_data("data")
-KG <- per_kg_table(D, "e")
+S     <- load_scenarios("data")
+START <- min(S$year)
+END   <- max(S$year)
+OPTS  <- read_csv("data/rz_options.csv", show_col_types = FALSE) |> filter(preset_label %in% RZ_LEVELS)
 
-COL  <- c(cl = "#d9622b", rz = "#1d6fa5")                               # closures only / recovery zones + closures
-BAND <- c(cl = "rgba(217,98,43,0.15)", rz = "rgba(29,111,165,0.15)")
+COL  <- c(bau = "#6c757d", cl = "#d9622b", rz = "#1d6fa5")  # business as usual / closure only / recovery zones + closure
+BAND <- c(bau = "rgba(108,117,125,0.12)", cl = "rgba(217,98,43,0.15)", rz = "rgba(29,111,165,0.15)")
 
-YMAX <- list(
-  eggs = map_dbl(c(off = FALSE, on = TRUE), \(b) axis_max(\(L, a) egg_lines(D, KG, L, a), b)),
-  cpue = map_dbl(c(off = FALSE, on = TRUE), \(b) axis_max(\(L, a) cpue_lines(D, L, a), b))
-)
+# fixed y-axis maximum per metric across all scenarios, so changing a scenario never rescales the axis
+YMAX <- S |> group_by(metric) |> summarise(off = max(m_pct), on = max(hi_pct))
+ymax_for <- function(metric, band) YMAX[[if (band) "on" else "off"]][YMAX$metric == metric]
 
-PRESETS <- tibble(label = c("None", D$OPTS$preset_label), share = c(0, D$OPTS$share_of_mapped_reef_pct))
-
-opt_at     <- function(v) D$OPTS |> filter(abs(share_of_mapped_reef_pct - v) < 0.05) |> slice_head(n = 1)
-share_fmt  <- function(v) paste0(round(v, 1), "%")
 pct_change <- function(a, b) { r <- round((a / b - 1) * 100); paste0(if (r >= 0) "+" else "−", abs(r), "%") }
+fmt_pct    <- function(v) if (is.na(v)) "–" else paste0(round(v), "%")
+closure_lab <- function(cl) paste0(cl, "-month closure")
+
+opt_text <- function(rz) {
+  if (rz == "None") return("No new recovery zones (existing NTZs only)")
+  o <- OPTS[OPTS$preset_label == rz, ]
+  if (nrow(o) == 0) return(paste(rz, "option"))
+  sprintf("%s: %d zones, %.1f%% of mapped reef", o$option, o$zones, o$share_of_mapped_reef_pct)
+}
 
 # label with an info icon that shows a tooltip on hover or tap
 info <- function(label, tip) {
@@ -42,50 +51,44 @@ info <- function(label, tip) {
 about_modal <- function() {
   modalDialog(
     title = "About this dashboard",
-    p(strong("Concept illustration only."), "This dashboard uses a published fine-scale population model of spangled
-      emperor (", em("Lethrinus nebulosus"), ") at Ningaloo (Aston et al. 2025), with added estimates of the effect on
-      egg production for a similar species whose reproductive output scales hyperallometrically with body mass."),
-    p("It shows what a full scenario analysis of spawning closures and recovery zones could look like for spawning
-      biomass, egg production and recreational fishing amenity. The plots are", strong("not"), "stock projections or
-      management advice and should not be relied upon."),
-    p(class = "text-secondary small mb-0", "Lines are re-scalings of published model results, not new model runs.
-      A model run for the West Coast with each option's actual zone layout is needed to compare options properly."),
+    p(strong("Concept illustration only."), "This dashboard shows scenario runs of a fine-scale population model of a
+      West Coast demersal fish, West Australian dhufish (", em("Glaucosoma hebraicum"), "), built on the approach of
+      Aston et al. (2025), with egg production that allows for reproductive output scaling hyperallometrically
+      with body mass."),
+    p("It shows what a scenario analysis of spawning closures and recovery zones could look like for spawning biomass
+      and egg production. The plots are", strong("not"), "stock projections or management advice and should not be
+      relied upon."),
     footer = modalButton("I understand"),
     easyClose = TRUE, size = "l"
   )
 }
 
 TIPS <- list(
-  closure = "Months closed to fishing each year during the spawning season. Effort removed = 0.0625 × (months + 3),
-             so 5 months removes 50%. The modelled closure was 5 months; other lengths are rescaled with a
-             per-recruit model.",
-  ntz     = "Share of mapped reef (0–200 m, Kalbarri to Cape Leeuwin) inside recovery zones. Aston et al. modelled
-             34%; other shares are scaled from that, and shares above 34% extrapolate beyond the model.",
-  band    = "Placeholder for uncertainty: the published 95% intervals carried through the same rescaling.",
-  eggs    = "Egg production as a percentage of an unfished stock, allowing for big, old females that spawn for
-             longer, more often and in bigger batches. Both lines start in 2027 from a depleted stock at 15% of
-             unfished spawning biomass (about 9.5% of unfished egg output).",
-  cpue    = "Predicted catch per boat day while fishing is open, in model cells within 10 km of the four main boat
-             ramps (Aston et al. 2025, Fig. 7a). Both lines start from the same depleted level in 2027."
+  closure = "Months closed to fishing each year during the spawning season. Three closure lengths were modelled:
+             5, 7 and 9 months.",
+  rz      = "Recovery-zone option added to the existing no-take zones. 'None' keeps the existing NTZs only, with the
+             spawning closure.",
+  band    = "2.5th to 97.5th percentiles of the 200 simulations for each scenario.",
+  biomass = paste0("Spawning biomass as a percentage of its ", START, " level. Every scenario starts from the same
+             stock in ", START, ". Lines are medians of 200 simulations."),
+  eggs    = paste0("Egg production as a percentage of its ", START, " level, allowing for big, old females that spawn
+             for longer, more often and in bigger batches. Lines are medians of 200 simulations.")
 )
 
 # ---- UI ----------------------------------------------------------------------------------------------
 
 sidebar_ui <- sidebar(
   width = 320,
-  sliderInput("closure", info("Spawning closure length", TIPS$closure),
-              min = 3, max = 9, value = CL0, step = 1, post = " months", ticks = FALSE),
-  div(class = "control-note", textOutput("closure_txt", inline = TRUE)),
+  radioButtons("closure", info("Spawning closure length", TIPS$closure),
+               choices = set_names(as.character(CLOSURES), paste(CLOSURES, "months")), selected = as.character(CL0), inline = TRUE),
   hr(),
-  sliderInput("ntz", info("Recovery-zone share of habitat", TIPS$ntz),
-              min = 0, max = NTZ_MAX, value = NTZ0, step = 0.1, post = "%", ticks = FALSE),
-  div(class = "control-note", textOutput("ntz_txt", inline = TRUE)),
-  div(class = "presets",
-      span(class = "small text-secondary", "Options:"),
-      imap(PRESETS$label, \(lab, k) actionButton(paste0("preset_", k), lab, class = "btn-sm btn-outline-secondary"))),
+  radioButtons("rz", info("Recovery zones", TIPS$rz), choices = RZ_LEVELS, selected = RZ0, inline = TRUE),
+  div(class = "control-note", textOutput("rz_txt", inline = TRUE)),
   hr(),
   checkboxInput("band", info("Show 95% interval", TIPS$band), FALSE),
-  actionButton("reset", "Reset to modelled settings", icon = icon("rotate-left"), class = "btn-sm btn-link px-0")
+  actionButton("reset", "Reset", icon = icon("rotate-left"), class = "btn-sm btn-link px-0"),
+  div(class = "legend-note small text-secondary",
+      span(class = "key key-bau"), paste("Business as usual: existing NTZs, no spawning closure"))
 )
 
 chart_card <- function(id, objective, title, tip) {
@@ -111,13 +114,26 @@ ui <- page_sidebar(
   fillable = FALSE,
   tags$head(tags$link(rel = "stylesheet", href = "styles.css")),
   sidebar = sidebar_ui,
-  
+
   layout_columns(
     col_widths = breakpoints(sm = 12, lg = c(6, 6)),
-    chart_card("eggs", "Objective A · Egg production", "Egg production (% of unfished)", TIPS$eggs),
-    chart_card("cpue", "Objective B · Fishing amenity", "Catch rates near boat ramps", TIPS$cpue)
+    chart_card("biomass", "Objective A · Spawning biomass", paste0("Spawning biomass (% of ", START, ")"), TIPS$biomass),
+    chart_card("eggs", "Objective B · Egg production", paste0("Egg production (% of ", START, ")"), TIPS$eggs)
   ),
-  
+
+  card(
+    card_header(div(class = "objective", "All scenarios"), h5(class = "mb-0", paste0("Where each scenario ends up in ", END, " (% of ", START, ")"))),
+    card_body(
+      layout_columns(
+        col_widths = breakpoints(sm = 12, md = c(6, 6)),
+        div(h6("Spawning biomass"), uiOutput("grid_biomass")),
+        div(h6("Egg production"), uiOutput("grid_eggs"))
+      ),
+      p(class = "small text-secondary mb-0", "Rows are recovery-zone options, columns are spawning-closure lengths. The
+        highlighted cell is the scenario selected in the sidebar. – = not modelled.")
+    )
+  ),
+
   accordion(
     open = FALSE,
     accordion_panel(
@@ -134,31 +150,35 @@ ui <- page_sidebar(
     accordion_panel(
       "Data tables", icon = bs_icon("table"),
       h6("Recovery-zone options"), tableOutput("tbl_opt"),
+      h6(textOutput("tbl_title", inline = TRUE)),
       layout_columns(
-        div(h6("Egg production (% of unfished)"), tableOutput("tbl_eggs")),
-        div(h6("Catch rate (fish per boat day per km²)"), tableOutput("tbl_cpue"))
+        div(h6("Spawning biomass (% of 2025)"), tableOutput("tbl_biomass")),
+        div(h6("Egg production (% of 2025)"), tableOutput("tbl_eggs"))
       )
     ),
     accordion_panel(
       "Methods and references", icon = bs_icon("book"),
       tags$ul(class = "small",
-              tags$li("Each line combines the four published scenarios bilinearly, scaled by recovery-zone share (relative to
-                 the modelled 34%) and closure effect (relative to the modelled 5 months)."),
-              tags$li("Egg production = spawning biomass × eggs per kg; eggs per kg rises with the share of females ≥ 700 mm."),
-              tags$li("Model years 2005–2018 are shown as 2027–2040. Values were digitised from published figures.")
+        tags$li("Each line is the median of 200 simulations for one modelled scenario; the band is the 2.5th to 97.5th
+                 percentile."),
+        tags$li(paste0("All scenarios start from the same stock in ", START, ", so values are shown as a percentage of
+                 the ", START, " level.")),
+        tags$li("Business as usual keeps the existing no-take zones with no spawning closure. 'No new recovery zones'
+                 keeps the existing no-take zones and adds the spawning closure."),
+        tags$li("Egg production was not modelled for the Small recovery-zone option.")
       ),
       div(class = "small text-secondary refs",
-          p("Aston C, Hesp A, Navarro M, Goetze JS, Wise B, Langlois T (2025). A fine-scale fish population model reveals
+        p("Aston C, Hesp A, Navarro M, Goetze JS, Wise B, Langlois T (2025). A fine-scale fish population model reveals
            how integration of spatial and temporal management can maximise conservation and fisheries benefits.",
-           em("Journal of Applied Ecology"), "62(11): 2954–2970.",
-           a("doi.org/10.1111/1365-2664.70185", href = "https://doi.org/10.1111/1365-2664.70185", target = "_blank")),
-          p("Evans-Powell RT, Hesp SA, Denham A, Beckley LE (2024). Implications of big, old, fat, fecund, female fish
+          em("Journal of Applied Ecology"), "62(11): 2954–2970.",
+          a("doi.org/10.1111/1365-2664.70185", href = "https://doi.org/10.1111/1365-2664.70185", target = "_blank")),
+        p("Evans-Powell RT, Hesp SA, Denham A, Beckley LE (2024). Implications of big, old, fat, fecund, female fish
            (BOFFFFs) for the reproductive potential of a demersal teleost stock.", em("Fisheries Research"), "272: 106934.",
-           a("doi.org/10.1016/j.fishres.2023.106934", href = "https://doi.org/10.1016/j.fishres.2023.106934", target = "_blank")),
-          p("Barneche DR, Robertson DR, White CR, Marshall DJ (2018). Fish reproductive-energy output increases
+          a("doi.org/10.1016/j.fishres.2023.106934", href = "https://doi.org/10.1016/j.fishres.2023.106934", target = "_blank")),
+        p("Barneche DR, Robertson DR, White CR, Marshall DJ (2018). Fish reproductive-energy output increases
            disproportionately with body size.", em("Science"), "360: 642–645.",
-           a("doi.org/10.1126/science.aao6868", href = "https://doi.org/10.1126/science.aao6868", target = "_blank")),
-          p("Fisher EA, Fairclough DV, Lek E, Briggs J, Hesp SA, Denham A (2025). West Coast Demersal Scalefish Resource:
+          a("doi.org/10.1126/science.aao6868", href = "https://doi.org/10.1126/science.aao6868", target = "_blank")),
+        p("Fisher EA, Fairclough DV, Lek E, Briggs J, Hesp SA, Denham A (2025). West Coast Demersal Scalefish Resource:
            2025 Assessment. Resource Assessment Report No. 2, DPIRD, Western Australia.")
       )
     )
@@ -170,98 +190,120 @@ ui <- page_sidebar(
 server <- function(input, output, session) {
   showModal(about_modal())
   observeEvent(input$about, showModal(about_modal()))
-  
-  # option buttons and reset
-  iwalk(PRESETS$share, \(share, k) observeEvent(input[[paste0("preset_", k)]], updateSliderInput(session, "ntz", value = share)))
+
   observeEvent(input$reset, {
-    updateSliderInput(session, "closure", value = CL0)
-    updateSliderInput(session, "ntz", value = NTZ0)
+    updateRadioButtons(session, "closure", selected = as.character(CL0))
+    updateRadioButtons(session, "rz", selected = RZ0)
+    updateCheckboxInput(session, "band", value = FALSE)
   })
-  
-  ntz  <- reactive(round(input$ntz, 1))
-  eggs <- reactive(egg_lines(D, KG, input$closure, ntz()))
-  cpue <- reactive(cpue_lines(D, input$closure, ntz()))
-  rz_label <- reactive(paste0("Recovery zones (", share_fmt(ntz()), ") + closures"))
-  
-  output$closure_txt <- renderText(sprintf("%s · %d%% less effort · %d months open",
-                                           CLOSE_MONTHS[[as.character(input$closure)]], round(effort_cut(input$closure) * 100), 12 - input$closure))
-  
-  output$ntz_txt <- renderText({
-    o <- opt_at(ntz())
-    case_when(nrow(o) > 0      ~ o$option[1],
-              ntz() == NTZ0    ~ "As modelled by Aston et al.",
-              ntz() > NTZ0     ~ "Extrapolated beyond the model",
-              TRUE             ~ "Custom share")
-  })
-  
+
+  closure <- reactive(as.integer(input$closure))
+  rz      <- reactive(input$rz)
+
+  NAMES <- reactive(c(bau = "Business as usual",
+                      cl  = paste0(closure_lab(closure()), ", no new zones"),
+                      rz  = paste0(rz(), " recovery zones + ", closure_lab(closure()))))
+
+  output$rz_txt <- renderText(opt_text(rz()))
+
   # ---- charts ----
-  trend_plot <- function(r, ymax, ylab, digits, suffix) {
-    hover <- paste0("%{y:.", digits, "f}", suffix)
-    p <- plot_ly(x = YEARS)
-    if (input$band) {
-      p <- p |>
-        add_ribbons(ymin = r$rz$lo, ymax = r$rz$hi, fillcolor = BAND[["rz"]], line = list(width = 0), hoverinfo = "skip", showlegend = FALSE) |>
-        add_ribbons(ymin = r$cl$lo, ymax = r$cl$hi, fillcolor = BAND[["cl"]], line = list(width = 0), hoverinfo = "skip", showlegend = FALSE)
+  trend_plot <- function(metric) {
+    L <- scenario_lines(S, metric, rz(), closure())
+    keys <- c("bau", "cl", "rz")[!map_lgl(L[c("bau", "cl", "rz")], is.null)]
+    p <- plot_ly()
+    if (input$band) for (k in keys) {
+      p <- add_ribbons(p, x = L[[k]]$year, ymin = L[[k]]$lo, ymax = L[[k]]$hi, fillcolor = BAND[[k]],
+                       line = list(width = 0), hoverinfo = "skip", showlegend = FALSE)
     }
+    for (k in keys) {
+      p <- add_lines(p, x = L[[k]]$year, y = L[[k]]$m, name = NAMES()[[k]], hovertemplate = "%{y:.0f}%",
+                     line = list(color = COL[[k]], width = if (k == "bau") 2 else 2.5, dash = if (k == "bau") "dash" else "solid"),
+                     legendrank = match(k, c("rz", "cl", "bau")))
+    }
+    note <- if (rz() != "None" && is.null(L$rz))
+      list(list(text = paste(rz(), "recovery zones not modelled for", tolower(METRICS[[metric]])), xref = "paper", yref = "paper",
+                x = 0.02, y = 0.98, xanchor = "left", yanchor = "top", showarrow = FALSE, font = list(color = "#6c757d")))
     p |>
-      # traces drawn later sit on top, so the orange closures-only line goes last; legendrank keeps it first in the legend
-      add_lines(y = r$rz$m, name = rz_label(), line = list(color = COL[["rz"]], width = 2.5), hovertemplate = hover, legendrank = 2) |>
-      add_lines(y = r$cl$m, name = "Spawning closures only", line = list(color = COL[["cl"]], width = 2.5), hovertemplate = hover, legendrank = 1) |>
-      add_markers(x = YEARS[1], y = r$start, name = "Common start (2027)", hovertemplate = hover,
-                  marker = list(color = "#343a40", size = 9, line = list(color = "white", width = 1.5))) |>
       layout(
         font = list(family = "Source Sans 3, sans-serif", size = 13, color = "#495057"),
         hovermode = "x unified",
-        legend = list(orientation = "h", x = 0, y = -0.12),
+        legend = list(orientation = "h", x = 0, y = -0.12, traceorder = "normal"),
         margin = list(l = 10, r = 10, t = 10, b = 10),
-        xaxis = list(title = "", dtick = 2, showgrid = FALSE, fixedrange = TRUE),
-        yaxis = list(title = "", showticklabels = FALSE, ticks = "", range = c(0, ymax * 1.08), gridcolor = "#e9ecef",
-                     zeroline = FALSE, fixedrange = TRUE)
+        xaxis = list(title = "", dtick = 5, showgrid = FALSE, fixedrange = TRUE),
+        yaxis = list(title = "", ticksuffix = "%", range = c(0, ymax_for(metric, input$band) * 1.05), gridcolor = "#e9ecef",
+                     zeroline = FALSE, fixedrange = TRUE),
+        shapes = list(list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = 100, y1 = 100,
+                           line = list(color = "#adb5bd", width = 1, dash = "dot"))),
+        annotations = note
       ) |>
       config(displayModeBar = FALSE)
   }
-  
-  band_key <- reactive(if (input$band) "on" else "off")
-  output$plot_eggs <- renderPlotly(trend_plot(eggs(), YMAX$eggs[[band_key()]], "% of unfished", 1, "%"))
-  output$plot_cpue <- renderPlotly(trend_plot(cpue(), YMAX$cpue[[band_key()]], "Fish per boat day per km²", 2, ""))
-  
-  # ---- summary boxes (values in 2040) ----
-  summary_boxes <- function(r, digits, suffix) {
-    fmt <- \(v) paste0(formatC(v, format = "f", digits = digits), suffix)
-    cl <- last(r$cl$m); rz <- last(r$rz$m)
+
+  output$plot_biomass <- renderPlotly(trend_plot("biomass"))
+  output$plot_eggs    <- renderPlotly(trend_plot("eggs"))
+
+  # ---- summary boxes (values in the final year) ----
+  summary_boxes <- function(metric) {
+    bau <- end_value(S, metric, "BAU", 0)
+    cl  <- end_value(S, metric, "None", closure())
     box <- \(title, value, note, key) div(class = paste("stat", paste0("stat-", key)),
                                           div(class = "stat-title", title), div(class = "stat-value", value), div(class = "stat-note", note))
-    layout_column_wrap(
-      width = "140px", fill = FALSE,
-      box("Closures only, 2040", fmt(cl), paste(pct_change(cl, r$start), "since 2027"), "cl"),
-      box("With recovery zones, 2040", fmt(rz), paste(pct_change(rz, r$start), "since 2027"), "rz"),
-      box("Gain from recovery zones", pct_change(rz, cl), "vs closures only", "gain")
+    boxes <- list(
+      box(paste("Business as usual,", END), fmt_pct(bau), paste("of", START, "level"), "bau"),
+      box(paste0(closure_lab(closure()), ", ", END), fmt_pct(cl), paste(pct_change(cl, bau), "vs business as usual"), "cl")
+    )
+    if (rz() != "None") {
+      v <- end_value(S, metric, rz(), closure())
+      note <- if (is.na(v)) "Not modelled" else paste(pct_change(v, cl), "vs closure only")
+      boxes[[3]] <- box(paste0(rz(), " zones + closure, ", END), fmt_pct(v), note, "rz")
+    }
+    do.call(layout_column_wrap, c(list(width = "140px", fill = FALSE), boxes))
+  }
+  output$boxes_biomass <- renderUI(summary_boxes("biomass"))
+  output$boxes_eggs    <- renderUI(summary_boxes("eggs"))
+
+  # ---- all-scenario grids ----
+  scenario_grid <- function(metric) {
+    cell <- \(r, cl) {
+      sel <- r == rz() && cl == closure()
+      tags$td(class = if (sel) "sel", fmt_pct(end_value(S, metric, r, cl)))
+    }
+    tags$table(class = "table table-sm grid",
+      tags$thead(tags$tr(tags$th("Recovery zones"), map(CLOSURES, \(cl) tags$th(paste(cl, "months"))))),
+      tags$tbody(
+        map(RZ_LEVELS, \(r) tags$tr(tags$th(r), map(CLOSURES, \(cl) cell(r, cl)))),
+        tags$tr(class = "bau-row", tags$th("Business as usual"),
+                tags$td(colspan = length(CLOSURES), fmt_pct(end_value(S, metric, "BAU", 0)), span(class = "text-secondary", " (no closure)")))
+      )
     )
   }
-  output$boxes_eggs <- renderUI(summary_boxes(eggs(), 1, "%"))
-  output$boxes_cpue <- renderUI(summary_boxes(cpue(), 2, ""))
-  
+  output$grid_biomass <- renderUI(scenario_grid("biomass"))
+  output$grid_eggs    <- renderUI(scenario_grid("eggs"))
+
   # ---- tables ----
-  series_table <- function(r, digits) {
-    tibble(Year = as.character(YEARS),
-           `Closures only` = formatC(r$cl$m, format = "f", digits = digits),
-           `With recovery zones` = formatC(r$rz$m, format = "f", digits = digits))
+  output$tbl_title <- renderText(paste0("Selected scenario: ", if (rz() == "None") "no new recovery zones" else paste(rz(), "recovery zones"),
+                                        ", ", closure_lab(closure())))
+  series_table <- function(metric) {
+    L <- scenario_lines(S, metric, rz(), closure())
+    f <- \(s) if (is.null(s)) rep("–", length(L$bau$year)) else formatC(s$m, format = "f", digits = 0)
+    d <- tibble(Year = as.character(L$bau$year), `Business as usual` = f(L$bau), `Closure only` = f(L$cl))
+    if (rz() != "None") d[[paste(rz(), "zones + closure")]] <- f(L$rz)
+    d
   }
-  output$tbl_eggs <- renderTable(series_table(eggs(), 1), align = "lrr", striped = TRUE, spacing = "s")
-  output$tbl_cpue <- renderTable(series_table(cpue(), 2), align = "lrr", striped = TRUE, spacing = "s")
-  
+  output$tbl_biomass <- renderTable(series_table("biomass"), align = "r", striped = TRUE, spacing = "s")
+  output$tbl_eggs    <- renderTable(series_table("eggs"), align = "r", striped = TRUE, spacing = "s")
+
   output$tbl_opt <- renderTable(
-    D$OPTS |>
+    OPTS |>
       transmute(
         Option = option,
         `GIS layer` = coalesce(gis_layer, "–"),
-        Zones = coalesce(as.character(zones), "–"),
-        `Zone area (km²)` = if_else(is.na(zone_area_km2), "–", formatC(zone_area_km2, format = "d", big.mark = ",")),
+        Zones = as.character(zones),
+        `Zone area (km²)` = formatC(zone_area_km2, format = "d", big.mark = ","),
         `Reef inside zones (km²)` = formatC(reef_inside_km2, format = "d", big.mark = ","),
-        `Share of mapped reef` = sprintf("%.1f%%", share_of_mapped_reef_pct),
-        `Share of modelled effect` = sprintf("%d%%", round(share_of_mapped_reef_pct / (A0 * 100) * 100))
+        `Share of mapped reef` = sprintf("%.1f%%", share_of_mapped_reef_pct)
       ),
-    align = "llrrrrr", striped = TRUE, spacing = "s"
+    align = "llrrrr", striped = TRUE, spacing = "s"
   )
 }
 
