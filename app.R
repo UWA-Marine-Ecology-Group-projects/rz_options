@@ -30,15 +30,20 @@ BAND <- c(bau = "rgba(108,117,125,0.12)", cl = "rgba(217,98,43,0.15)", rz = "rgb
 YMAX <- S |> group_by(metric) |> summarise(off = max(m_pct), on = max(hi_pct))
 ymax_for <- function(metric, band) YMAX[[if (band) "on" else "off"]][YMAX$metric == metric]
 
-pct_change <- function(a, b) { r <- round((a / b - 1) * 100); paste0(if (r >= 0) "+" else "−", abs(r), "%") }
+# common starting level (every scenario starts from the same stock), drawn as a dotted reference line
+start_level <- function(metric) S$m_pct[S$metric == metric & S$rz == "BAU" & S$year == START]
+
+pts_change <- function(a, b) { r <- round(a - b); paste0(if (r >= 0) "+" else "−", abs(r), " pts") }  # percentage points
 fmt_pct    <- function(v) if (is.na(v)) "–" else paste0(round(v), "%")
 closure_lab <- function(cl) paste0(cl, "-month closure")
+YLAB <- c(biomass = "% unfished spawning biomass", eggs = "% unfished egg production")
 
 opt_text <- function(rz) {
   if (rz == "None") return("No new recovery zones (existing NTZs only)")
   o <- OPTS[OPTS$preset_label == rz, ]
   if (nrow(o) == 0) return(paste(rz, "option"))
-  sprintf("%s: %d zones, %.1f%% of mapped reef", o$option, o$zones, o$share_of_mapped_reef_pct)
+  if (is.na(o$zones)) return(sprintf("%s: %g%% of mapped reef", o$option, o$share_of_mapped_reef_pct))
+  sprintf("%s: %d zones, %.1f%% of mapped reef", o$option, as.integer(o$zones), o$share_of_mapped_reef_pct)
 }
 
 # label with an info icon that shows a tooltip on hover or tap
@@ -52,7 +57,7 @@ about_modal <- function() {
   modalDialog(
     title = "About this dashboard",
     p(strong("Concept illustration only."), "This dashboard shows scenario runs of a fine-scale population model of a
-      West Coast demersal fish, West Australian dhufish (", em("Glaucosoma hebraicum"), "), built on the approach of
+      West Coast demersal fish, West Australian dhufish", em("(Glaucosoma hebraicum),"), "built on the approach of
       Aston et al. (2025), with egg production that allows for reproductive output scaling hyperallometrically
       with body mass."),
     p("It shows what a scenario analysis of spawning closures and recovery zones could look like for spawning biomass
@@ -64,15 +69,16 @@ about_modal <- function() {
 }
 
 TIPS <- list(
-  closure = "Months closed to fishing each year during the spawning season. Three closure lengths were modelled:
-             5, 7 and 9 months.",
+  closure = "Months closed to fishing each year during the spawning season. Four closure lengths were modelled:
+             5, 6, 7 and 9 months.",
   rz      = "Recovery-zone option added to the existing no-take zones. 'None' keeps the existing NTZs only, with the
              spawning closure.",
   band    = "2.5th to 97.5th percentiles of the 200 simulations for each scenario.",
-  biomass = paste0("Spawning biomass as a percentage of its ", START, " level. Every scenario starts from the same
-             stock in ", START, ". Lines are medians of 200 simulations."),
-  eggs    = paste0("Egg production as a percentage of its ", START, " level, allowing for big, old females that spawn
-             for longer, more often and in bigger batches. Lines are medians of 200 simulations.")
+  biomass = paste0("Spawning biomass as a percentage of unfished. Every scenario starts from the same stock in ",
+                   START, " (dotted line). Lines are medians of 200 simulations."),
+  eggs    = paste0("Egg production as a percentage of unfished, allowing for big, old females that spawn for longer,
+             more often and in bigger batches. Every scenario starts from the same stock in ", START, " (dotted line).
+             Lines are medians of 200 simulations.")
 )
 
 # ---- UI ----------------------------------------------------------------------------------------------
@@ -98,7 +104,9 @@ chart_card <- function(id, objective, title, tip) {
       div(class = "objective", objective),
       div(class = "d-flex align-items-center", h5(class = "mb-0", title), tooltip(bs_icon("info-circle", class = "text-secondary ms-2"), tip))
     ),
-    card_body(plotlyOutput(paste0("plot_", id), height = "380px")),
+    card_body(class = "pb-2",
+              plotlyOutput(paste0("plot_", id), height = "340px"),
+              uiOutput(paste0("legend_", id))),
     card_footer(uiOutput(paste0("boxes_", id)))
   )
 }
@@ -114,26 +122,25 @@ ui <- page_sidebar(
   fillable = FALSE,
   tags$head(tags$link(rel = "stylesheet", href = "styles.css")),
   sidebar = sidebar_ui,
-
+  
   layout_columns(
     col_widths = breakpoints(sm = 12, lg = c(6, 6)),
-    chart_card("biomass", "Objective A · Spawning biomass", paste0("Spawning biomass (% of ", START, ")"), TIPS$biomass),
-    chart_card("eggs", "Objective B · Egg production", paste0("Egg production (% of ", START, ")"), TIPS$eggs)
+    chart_card("biomass", "Objective A · Spawning biomass", "Spawning biomass (% of unfished)", TIPS$biomass),
+    chart_card("eggs", "Objective B · Egg production", "Egg production (% of unfished)", TIPS$eggs)
   ),
-
+  
   card(
-    card_header(div(class = "objective", "All scenarios"), h5(class = "mb-0", paste0("Where each scenario ends up in ", END, " (% of ", START, ")"))),
+    card_header(div(class = "objective", "All scenarios"), h5(class = "mb-0", paste(END, "Spawning Biomass and Egg Production (% of unfished)"))),
     card_body(
       layout_columns(
         col_widths = breakpoints(sm = 12, md = c(6, 6)),
         div(h6("Spawning biomass"), uiOutput("grid_biomass")),
         div(h6("Egg production"), uiOutput("grid_eggs"))
       ),
-      p(class = "small text-secondary mb-0", "Rows are recovery-zone options, columns are spawning-closure lengths. The
-        highlighted cell is the scenario selected in the sidebar. – = not modelled.")
+      p(class = "small text-secondary mb-0", "The highlighted cell is the scenario selected in the sidebar.")
     )
   ),
-
+  
   accordion(
     open = FALSE,
     accordion_panel(
@@ -152,33 +159,32 @@ ui <- page_sidebar(
       h6("Recovery-zone options"), tableOutput("tbl_opt"),
       h6(textOutput("tbl_title", inline = TRUE)),
       layout_columns(
-        div(h6("Spawning biomass (% of 2025)"), tableOutput("tbl_biomass")),
-        div(h6("Egg production (% of 2025)"), tableOutput("tbl_eggs"))
+        div(h6("Spawning biomass (% of unfished)"), tableOutput("tbl_biomass")),
+        div(h6("Egg production (% of unfished)"), tableOutput("tbl_eggs"))
       )
     ),
     accordion_panel(
       "Methods and references", icon = bs_icon("book"),
       tags$ul(class = "small",
-        tags$li("Each line is the median of 200 simulations for one modelled scenario; the band is the 2.5th to 97.5th
+              tags$li("Each line is the median of 200 simulations for one modelled scenario; the band is the 2.5th to 97.5th
                  percentile."),
-        tags$li(paste0("All scenarios start from the same stock in ", START, ", so values are shown as a percentage of
-                 the ", START, " level.")),
-        tags$li("Business as usual keeps the existing no-take zones with no spawning closure. 'No new recovery zones'
-                 keeps the existing no-take zones and adds the spawning closure."),
-        tags$li("Egg production was not modelled for the Small recovery-zone option.")
+              tags$li(paste0("Values are relative to the unfished level. All scenarios start from the same stock in ", START, ".")),
+              tags$li("Differences between scenarios are given in percentage points (pts) of unfished."),
+              tags$li("Business as usual keeps the existing no-take zones with no spawning closure. 'No new recovery zones'
+                 keeps the existing no-take zones and adds the spawning closure.")
       ),
       div(class = "small text-secondary refs",
-        p("Aston C, Hesp A, Navarro M, Goetze JS, Wise B, Langlois T (2025). A fine-scale fish population model reveals
+          p("Aston C, Hesp A, Navarro M, Goetze JS, Wise B, Langlois T (2025). A fine-scale fish population model reveals
            how integration of spatial and temporal management can maximise conservation and fisheries benefits.",
-          em("Journal of Applied Ecology"), "62(11): 2954–2970.",
-          a("doi.org/10.1111/1365-2664.70185", href = "https://doi.org/10.1111/1365-2664.70185", target = "_blank")),
-        p("Evans-Powell RT, Hesp SA, Denham A, Beckley LE (2024). Implications of big, old, fat, fecund, female fish
+           em("Journal of Applied Ecology"), "62(11): 2954–2970.",
+           a("doi.org/10.1111/1365-2664.70185", href = "https://doi.org/10.1111/1365-2664.70185", target = "_blank")),
+          p("Evans-Powell RT, Hesp SA, Denham A, Beckley LE (2024). Implications of big, old, fat, fecund, female fish
            (BOFFFFs) for the reproductive potential of a demersal teleost stock.", em("Fisheries Research"), "272: 106934.",
-          a("doi.org/10.1016/j.fishres.2023.106934", href = "https://doi.org/10.1016/j.fishres.2023.106934", target = "_blank")),
-        p("Barneche DR, Robertson DR, White CR, Marshall DJ (2018). Fish reproductive-energy output increases
+           a("doi.org/10.1016/j.fishres.2023.106934", href = "https://doi.org/10.1016/j.fishres.2023.106934", target = "_blank")),
+          p("Barneche DR, Robertson DR, White CR, Marshall DJ (2018). Fish reproductive-energy output increases
            disproportionately with body size.", em("Science"), "360: 642–645.",
-          a("doi.org/10.1126/science.aao6868", href = "https://doi.org/10.1126/science.aao6868", target = "_blank")),
-        p("Fisher EA, Fairclough DV, Lek E, Briggs J, Hesp SA, Denham A (2025). West Coast Demersal Scalefish Resource:
+           a("doi.org/10.1126/science.aao6868", href = "https://doi.org/10.1126/science.aao6868", target = "_blank")),
+          p("Fisher EA, Fairclough DV, Lek E, Briggs J, Hesp SA, Denham A (2025). West Coast Demersal Scalefish Resource:
            2025 Assessment. Resource Assessment Report No. 2, DPIRD, Western Australia.")
       )
     )
@@ -190,22 +196,25 @@ ui <- page_sidebar(
 server <- function(input, output, session) {
   showModal(about_modal())
   observeEvent(input$about, showModal(about_modal()))
-
+  
   observeEvent(input$reset, {
     updateRadioButtons(session, "closure", selected = as.character(CL0))
     updateRadioButtons(session, "rz", selected = RZ0)
     updateCheckboxInput(session, "band", value = FALSE)
   })
-
+  
   closure <- reactive(as.integer(input$closure))
   rz      <- reactive(input$rz)
-
+  
   NAMES <- reactive(c(bau = "Business as usual",
                       cl  = paste0(closure_lab(closure()), ", no new zones"),
                       rz  = paste0(rz(), " recovery zones + ", closure_lab(closure()))))
-
+  
+  # shorter names for the hover box
+  SHORT <- reactive(c(bau = "Business as usual", cl = "Closure only", rz = paste(rz(), "zones + closure")))
+  
   output$rz_txt <- renderText(opt_text(rz()))
-
+  
   # ---- charts ----
   trend_plot <- function(metric) {
     L <- scenario_lines(S, metric, rz(), closure())
@@ -216,9 +225,9 @@ server <- function(input, output, session) {
                        line = list(width = 0), hoverinfo = "skip", showlegend = FALSE)
     }
     for (k in keys) {
-      p <- add_lines(p, x = L[[k]]$year, y = L[[k]]$m, name = NAMES()[[k]], hovertemplate = "%{y:.0f}%",
+      p <- add_lines(p, x = L[[k]]$year, y = L[[k]]$m, name = SHORT()[[k]], hovertemplate = "%{y:.0f}%",
                      line = list(color = COL[[k]], width = if (k == "bau") 2 else 2.5, dash = if (k == "bau") "dash" else "solid"),
-                     legendrank = match(k, c("rz", "cl", "bau")))
+                     showlegend = FALSE)
     }
     note <- if (rz() != "None" && is.null(L$rz))
       list(list(text = paste(rz(), "recovery zones not modelled for", tolower(METRICS[[metric]])), xref = "paper", yref = "paper",
@@ -227,21 +236,33 @@ server <- function(input, output, session) {
       layout(
         font = list(family = "Source Sans 3, sans-serif", size = 13, color = "#495057"),
         hovermode = "x unified",
-        legend = list(orientation = "h", x = 0, y = -0.12, traceorder = "normal"),
+        # system font for hover labels: plotly sizes the box before web fonts load, which clipped the text
+        hoverlabel = list(font = list(family = "system-ui, -apple-system, 'Segoe UI', Arial, sans-serif", size = 13)),
         margin = list(l = 10, r = 10, t = 10, b = 10),
-        xaxis = list(title = "", dtick = 5, showgrid = FALSE, fixedrange = TRUE),
-        yaxis = list(title = "", ticksuffix = "%", range = c(0, ymax_for(metric, input$band) * 1.05), gridcolor = "#e9ecef",
-                     zeroline = FALSE, fixedrange = TRUE),
-        shapes = list(list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = 100, y1 = 100,
+        xaxis = list(title = "", tickvals = seq(START, END, by = 5), range = c(START - 1, END + 1), showgrid = FALSE,
+                     fixedrange = TRUE),
+        yaxis = list(title = list(text = YLAB[[metric]], standoff = 10), automargin = TRUE, ticksuffix = "%",
+                     range = c(0, ymax_for(metric, input$band) * 1.05), gridcolor = "#e9ecef", zeroline = FALSE, fixedrange = TRUE),
+        shapes = list(list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = start_level(metric), y1 = start_level(metric),
                            line = list(color = "#adb5bd", width = 1, dash = "dot"))),
         annotations = note
       ) |>
       config(displayModeBar = FALSE)
   }
-
+  
+  # legend drawn in HTML above each chart, so long names wrap instead of overlapping
+  chart_legend <- function(metric) {
+    L <- scenario_lines(S, metric, rz(), closure())
+    keys <- c("rz", "cl", "bau")[c(!is.null(L$rz), TRUE, TRUE)]
+    div(class = "chart-legend",
+        map(keys, \(k) span(class = "item", span(class = paste("swatch", paste0("swatch-", k))), NAMES()[[k]])))
+  }
+  output$legend_biomass <- renderUI(chart_legend("biomass"))
+  output$legend_eggs    <- renderUI(chart_legend("eggs"))
+  
   output$plot_biomass <- renderPlotly(trend_plot("biomass"))
   output$plot_eggs    <- renderPlotly(trend_plot("eggs"))
-
+  
   # ---- summary boxes (values in the final year) ----
   summary_boxes <- function(metric) {
     bau <- end_value(S, metric, "BAU", 0)
@@ -249,37 +270,41 @@ server <- function(input, output, session) {
     box <- \(title, value, note, key) div(class = paste("stat", paste0("stat-", key)),
                                           div(class = "stat-title", title), div(class = "stat-value", value), div(class = "stat-note", note))
     boxes <- list(
-      box(paste("Business as usual,", END), fmt_pct(bau), paste("of", START, "level"), "bau"),
-      box(paste0(closure_lab(closure()), ", ", END), fmt_pct(cl), paste(pct_change(cl, bau), "vs business as usual"), "cl")
+      box(paste("Business as usual,", END), fmt_pct(bau), paste0("of unfished (", round(start_level(metric)), "% in ", START, ")"), "bau"),
+      box(paste0(closure_lab(closure()), ", ", END), fmt_pct(cl), paste(pts_change(cl, bau), "vs business as usual"), "cl")
     )
     if (rz() != "None") {
       v <- end_value(S, metric, rz(), closure())
-      note <- if (is.na(v)) "Not modelled" else paste(pct_change(v, cl), "vs closure only")
+      note <- if (is.na(v)) "Not modelled" else paste(pts_change(v, cl), "vs closure only")
       boxes[[3]] <- box(paste0(rz(), " zones + closure, ", END), fmt_pct(v), note, "rz")
     }
     do.call(layout_column_wrap, c(list(width = "140px", fill = FALSE), boxes))
   }
   output$boxes_biomass <- renderUI(summary_boxes("biomass"))
   output$boxes_eggs    <- renderUI(summary_boxes("eggs"))
-
+  
   # ---- all-scenario grids ----
   scenario_grid <- function(metric) {
     cell <- \(r, cl) {
       sel <- r == rz() && cl == closure()
       tags$td(class = if (sel) "sel", fmt_pct(end_value(S, metric, r, cl)))
     }
-    tags$table(class = "table table-sm grid",
-      tags$thead(tags$tr(tags$th("Recovery zones"), map(CLOSURES, \(cl) tags$th(paste(cl, "months"))))),
-      tags$tbody(
-        map(RZ_LEVELS, \(r) tags$tr(tags$th(r), map(CLOSURES, \(cl) cell(r, cl)))),
-        tags$tr(class = "bau-row", tags$th("Business as usual"),
-                tags$td(colspan = length(CLOSURES), fmt_pct(end_value(S, metric, "BAU", 0)), span(class = "text-secondary", " (no closure)")))
-      )
+    tags$table(class = "table table-sm scen-grid",
+               tags$thead(
+                 tags$tr(tags$th(rowspan = 2, class = "corner", "Recovery-zone option"),
+                         tags$th(colspan = length(CLOSURES), class = "group", "Spawning closure length")),
+                 tags$tr(map(CLOSURES, \(cl) tags$th(paste(cl, "months"))))
+               ),
+               tags$tbody(
+                 map(RZ_LEVELS, \(r) tags$tr(tags$th(r), map(CLOSURES, \(cl) cell(r, cl)))),
+                 tags$tr(class = "bau-row", tags$th("Business as usual"),
+                         tags$td(colspan = length(CLOSURES), fmt_pct(end_value(S, metric, "BAU", 0)), span(class = "text-secondary", " (no closure)")))
+               )
     )
   }
   output$grid_biomass <- renderUI(scenario_grid("biomass"))
   output$grid_eggs    <- renderUI(scenario_grid("eggs"))
-
+  
   # ---- tables ----
   output$tbl_title <- renderText(paste0("Selected scenario: ", if (rz() == "None") "no new recovery zones" else paste(rz(), "recovery zones"),
                                         ", ", closure_lab(closure())))
@@ -292,15 +317,15 @@ server <- function(input, output, session) {
   }
   output$tbl_biomass <- renderTable(series_table("biomass"), align = "r", striped = TRUE, spacing = "s")
   output$tbl_eggs    <- renderTable(series_table("eggs"), align = "r", striped = TRUE, spacing = "s")
-
+  
   output$tbl_opt <- renderTable(
     OPTS |>
       transmute(
         Option = option,
         `GIS layer` = coalesce(gis_layer, "–"),
-        Zones = as.character(zones),
-        `Zone area (km²)` = formatC(zone_area_km2, format = "d", big.mark = ","),
-        `Reef inside zones (km²)` = formatC(reef_inside_km2, format = "d", big.mark = ","),
+        Zones = if_else(is.na(zones), "–", as.character(zones)),
+        `Zone area (km²)` = if_else(is.na(zone_area_km2), "–", formatC(zone_area_km2, format = "d", big.mark = ",")),
+        `Reef inside zones (km²)` = if_else(is.na(reef_inside_km2), "–", formatC(reef_inside_km2, format = "d", big.mark = ",")),
         `Share of mapped reef` = sprintf("%.1f%%", share_of_mapped_reef_pct)
       ),
     align = "llrrrr", striped = TRUE, spacing = "s"

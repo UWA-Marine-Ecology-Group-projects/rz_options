@@ -2,4 +2,4 @@ option,preset_label,gis_layer,share_of_mapped_reef_pct,zones,zone_area_km2,reef_
 Small option,Small,RZ_small_4,13.0,10,6278,1926
 Medium option,Medium,RZ_medium_4,19.6,10,10755,2910
 Large option,Large,RZ_large_5,28.9,14,14606,4287
-Extra large option,Extra large,,60,,,8888
+Extra large option,Extra large,,40,,,
