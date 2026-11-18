@@ -5,7 +5,7 @@ account: marine-ecology
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 18346335
-bundleId: 12836600
+bundleId: 12836613
 url: https://marine-ecology.shinyapps.io/rz_scenarios/
 version: 1
 asMultiple: FALSE

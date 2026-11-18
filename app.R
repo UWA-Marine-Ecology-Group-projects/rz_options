@@ -114,7 +114,7 @@ chart_card <- function(id, objective, title, tip) {
 
 ui <- page_sidebar(
   title = div(class = "d-flex align-items-center w-100 gap-3",
-              span(class = "app-title", "Recovery Zone Options"),
+              span(class = "app-title", "Recovery Zone Scenarios"),
               span(class = "app-subtitle d-none d-md-inline", "Demersal fish scenarios · West Coast"),
               actionButton("about", "About & disclaimer", icon = icon("circle-info"), class = "btn-sm btn-outline-light ms-auto")),
   window_title = "Recovery Zone Options",
