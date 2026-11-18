@@ -7,8 +7,6 @@ body { background: #f4f6f8; }
 
 .bslib-sidebar-layout > .sidebar { background: #fff; }
 .control-note { font-size: 0.85rem; color: #495057; margin-top: -0.5rem; }
-.legend-note { margin-top: 1rem; display: flex; align-items: center; gap: 0.4rem; }
-.key { display: inline-block; width: 1.4rem; border-top: 2px dashed #6c757d; flex: none; }
 
 .card { border: none; box-shadow: 0 1px 3px rgba(16, 24, 40, 0.08); }
 .card-header { background: #fff; }
@@ -24,29 +22,21 @@ body { background: #f4f6f8; }
 .stat-note { font-size: 0.8rem; color: #6c757d; }
 
 /* scenario grid (not .grid: Bootstrap uses that class for CSS grid layout) */
-.scen-grid { font-variant-numeric: tabular-nums; width: auto; }
+.scen-grid { font-variant-numeric: tabular-nums; width: 100%; }
 .scen-grid td, .scen-grid thead th { text-align: center; white-space: nowrap; padding-left: 0.6rem; padding-right: 0.6rem; }
 .scen-grid thead th.corner, .scen-grid tbody th { text-align: left; font-weight: 600; white-space: nowrap; vertical-align: bottom; }
 .scen-grid thead th.group { border-bottom: 1px solid #adb5bd; color: #495057; }
 .scen-grid td.sel { background: #1d6fa5; color: #fff; font-weight: 600; }
 .scen-grid .bau-row th, .scen-grid .bau-row td { border-top: 2px solid #dee2e6; color: #495057; font-weight: 400; }
 
-/* chart with its legend on the right; the legend drops below the chart on narrow screens */
-.chart-row { display: flex; align-items: center; gap: 1rem; }
-.chart-plot { flex: 1 1 auto; min-width: 0; }
-.chart-legend-wrap { flex: 0 0 170px; }
-.chart-legend { display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; line-height: 1.25; color: #495057; }
-.chart-legend .item { display: flex; align-items: flex-start; gap: 0.5rem; }
-.chart-legend .swatch { flex: none; margin-top: 0.55em; }
-@media (max-width: 575.98px) {
-  .chart-row { flex-direction: column; align-items: stretch; }
-  .chart-legend-wrap { flex-basis: auto; }
-}
-.swatch { display: inline-block; width: 1.5rem; border-top: 2.5px solid; }
+/* HTML legend below each chart (wraps instead of overlapping) */
+.chart-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 1.5rem; font-size: 0.85rem; color: #495057; }
+.chart-legend .item { display: inline-flex; align-items: center; gap: 0.45rem; }
+.swatch { display: inline-block; flex: none; width: 1.5rem; border-top: 2.5px solid; }
 .swatch-rz { border-color: #1d6fa5; }
 .swatch-cl { border-color: #d9622b; }
 .swatch-bau { border-color: #6c757d; border-top-style: dashed; border-top-width: 2px; }
 
 .accordion { margin-top: 1rem; }
 .refs p { margin-bottom: 0.5rem; }
-.table { font-size: 0.85rem; }
+.table { font-size: 0.85rem; }

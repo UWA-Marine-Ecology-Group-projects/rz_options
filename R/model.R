@@ -40,8 +40,9 @@ scenario_lines <- function(S, metric, rz, closure) {
        rz  = if (rz != "None") get_series(S, metric, rz, closure))
 }
 
-# value in the final year (% of unfished)
-end_value <- function(S, metric, rz, closure) {
+# value in a given year, or the final year if none is given (% of unfished)
+end_value <- function(S, metric, rz, closure, year = NULL) {
   s <- get_series(S, metric, rz, closure)
-  if (is.null(s)) NA_real_ else s$m[length(s$m)]
+  if (is.null(s)) return(NA_real_)
+  if (is.null(year)) s$m[length(s$m)] else s$m[match(year, s$year)]
 }

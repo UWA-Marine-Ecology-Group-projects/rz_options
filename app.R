@@ -21,9 +21,10 @@ if (!exists("load_scenarios")) source("R/model.R", local = TRUE)
 S     <- load_scenarios("data")
 START <- min(S$year)
 END   <- max(S$year)
+REPORT_YEAR <- 2040  # year shown in the value boxes and the all-scenarios table
 OPTS  <- read_csv("data/rz_options.csv", show_col_types = FALSE) |> filter(preset_label %in% RZ_LEVELS)
 
-COL  <- c(bau = "#6c757d", cl = "#d9622b", rz = "#1d6fa5")  # business as usual / closure only / recovery zones + closure
+COL  <- c(bau = "#6c757d", cl = "#d9622b", rz = "#1d6fa5")  # no spawning closure / closure only / recovery zones + closure
 BAND <- c(bau = "rgba(108,117,125,0.12)", cl = "rgba(217,98,43,0.15)", rz = "rgba(29,111,165,0.15)")
 
 # fixed y-axis maximum per metric across all scenarios, so changing a scenario never rescales the axis
@@ -69,6 +70,7 @@ about_modal <- function() {
 }
 
 TIPS <- list(
+  bau     = "Adds the no spawning closure scenario (dashed line): existing NTZs only, no spawning closure.",
   closure = "Months closed to fishing each year during the spawning season. Four closure lengths were modelled:
              5, 6, 7 and 9 months.",
   rz      = "Recovery-zone option added to the existing no-take zones. 'None' keeps the existing NTZs only, with the
@@ -91,10 +93,9 @@ sidebar_ui <- sidebar(
   radioButtons("rz", info("Recovery zones", TIPS$rz), choices = RZ_LEVELS, selected = RZ0, inline = TRUE),
   div(class = "control-note", textOutput("rz_txt", inline = TRUE)),
   hr(),
+  checkboxInput("bau", info("Show no spawning closure option on plots", TIPS$bau), FALSE),
   checkboxInput("band", info("Show 95% interval", TIPS$band), FALSE),
-  actionButton("reset", "Reset", icon = icon("rotate-left"), class = "btn-sm btn-link px-0"),
-  div(class = "legend-note small text-secondary",
-      span(class = "key key-bau"), paste("Business as usual: existing NTZs, no spawning closure"))
+  actionButton("reset", "Reset", icon = icon("rotate-left"), class = "btn-sm btn-link px-0")
 )
 
 chart_card <- function(id, objective, title, tip) {
@@ -120,7 +121,7 @@ ui <- page_sidebar(
   theme = bs_theme(version = 5, primary = "#12465e", "navbar-bg" = "#12465e",
                    base_font = font_google("Source Sans 3", local = FALSE), font_scale = 0.95),
   fillable = FALSE,
-  tags$head(tags$link(rel = "stylesheet", href = "styles.css")),
+  tags$head(includeCSS("www/styles.css")),  # inlined, so the page never depends on fetching the file separately
   sidebar = sidebar_ui,
   
   layout_columns(
@@ -130,7 +131,7 @@ ui <- page_sidebar(
   ),
   
   card(
-    card_header(div(class = "objective", "All scenarios"), h5(class = "mb-0", paste(END, "Spawning Biomass and Egg Production (% of unfished)"))),
+    card_header(div(class = "objective", "All scenarios"), h5(class = "mb-0", paste(REPORT_YEAR, "Spawning Biomass and Egg Production (% of unfished)"))),
     card_body(
       layout_columns(
         col_widths = breakpoints(sm = 12, md = c(6, 6)),
@@ -170,7 +171,7 @@ ui <- page_sidebar(
                  percentile."),
               tags$li(paste0("Values are relative to the unfished level. All scenarios start from the same stock in ", START, ".")),
               tags$li("Differences between scenarios are given in percentage points (pts) of unfished."),
-              tags$li("Business as usual keeps the existing no-take zones with no spawning closure. 'No new recovery zones'
+              tags$li("No spawning closure keeps the existing no-take zones with no closure. 'No new recovery zones'
                  keeps the existing no-take zones and adds the spawning closure.")
       ),
       div(class = "small text-secondary refs",
@@ -200,25 +201,27 @@ server <- function(input, output, session) {
   observeEvent(input$reset, {
     updateRadioButtons(session, "closure", selected = as.character(CL0))
     updateRadioButtons(session, "rz", selected = RZ0)
+    updateCheckboxInput(session, "bau", value = FALSE)
     updateCheckboxInput(session, "band", value = FALSE)
   })
   
   closure <- reactive(as.integer(input$closure))
   rz      <- reactive(input$rz)
   
-  NAMES <- reactive(c(bau = "Business as usual",
+  NAMES <- reactive(c(bau = "No spawning closure",
                       cl  = paste0(closure_lab(closure()), ", no new zones"),
                       rz  = paste0(rz(), " recovery zones + ", closure_lab(closure()))))
   
   # shorter names for the hover box
-  SHORT <- reactive(c(bau = "Business as usual", cl = "Closure only", rz = paste(rz(), "zones + closure")))
+  SHORT <- reactive(c(bau = "No spawning closure", cl = "Closure only", rz = paste(rz(), "zones + closure")))
   
   output$rz_txt <- renderText(opt_text(rz()))
   
   # ---- charts ----
   trend_plot <- function(metric) {
     L <- scenario_lines(S, metric, rz(), closure())
-    keys <- c("bau", "cl", "rz")[!map_lgl(L[c("bau", "cl", "rz")], is.null)]
+    if (!input$bau) L$bau <- NULL  # no-closure line only when its sidebar option is ticked
+    keys <- intersect(c("bau", "cl", "rz"), names(L)[!map_lgl(L, is.null)])
     p <- plot_ly()
     if (input$band) for (k in keys) {
       p <- add_ribbons(p, x = L[[k]]$year, ymin = L[[k]]$lo, ymax = L[[k]]$hi, fillcolor = BAND[[k]],
@@ -253,7 +256,7 @@ server <- function(input, output, session) {
   # legend drawn in HTML above each chart, so long names wrap instead of overlapping
   chart_legend <- function(metric) {
     L <- scenario_lines(S, metric, rz(), closure())
-    keys <- c("rz", "cl", "bau")[c(!is.null(L$rz), TRUE, TRUE)]
+    keys <- c("rz", "cl", "bau")[c(!is.null(L$rz), TRUE, input$bau)]
     div(class = "chart-legend",
         map(keys, \(k) span(class = "item", span(class = paste("swatch", paste0("swatch-", k))), NAMES()[[k]])))
   }
@@ -263,20 +266,20 @@ server <- function(input, output, session) {
   output$plot_biomass <- renderPlotly(trend_plot("biomass"))
   output$plot_eggs    <- renderPlotly(trend_plot("eggs"))
   
-  # ---- summary boxes (values in the final year) ----
+  # ---- summary boxes (values in REPORT_YEAR) ----
   summary_boxes <- function(metric) {
-    bau <- end_value(S, metric, "BAU", 0)
-    cl  <- end_value(S, metric, "None", closure())
+    bau <- end_value(S, metric, "BAU", 0, REPORT_YEAR)
+    cl  <- end_value(S, metric, "None", closure(), REPORT_YEAR)
     box <- \(title, value, note, key) div(class = paste("stat", paste0("stat-", key)),
                                           div(class = "stat-title", title), div(class = "stat-value", value), div(class = "stat-note", note))
     boxes <- list(
-      box(paste("Business as usual,", END), fmt_pct(bau), paste0("of unfished (", round(start_level(metric)), "% in ", START, ")"), "bau"),
-      box(paste0(closure_lab(closure()), ", ", END), fmt_pct(cl), paste(pts_change(cl, bau), "vs business as usual"), "cl")
+      box(paste("No spawning closure,", REPORT_YEAR), fmt_pct(bau), paste0("of unfished (", round(start_level(metric)), "% in ", START, ")"), "bau"),
+      box(paste0(closure_lab(closure()), ", ", REPORT_YEAR), fmt_pct(cl), paste(pts_change(cl, bau), "vs no spawning closure"), "cl")
     )
     if (rz() != "None") {
-      v <- end_value(S, metric, rz(), closure())
+      v <- end_value(S, metric, rz(), closure(), REPORT_YEAR)
       note <- if (is.na(v)) "Not modelled" else paste(pts_change(v, cl), "vs closure only")
-      boxes[[3]] <- box(paste0(rz(), " zones + closure, ", END), fmt_pct(v), note, "rz")
+      boxes[[3]] <- box(paste0(rz(), " zones + closure, ", REPORT_YEAR), fmt_pct(v), note, "rz")
     }
     do.call(layout_column_wrap, c(list(width = "140px", fill = FALSE), boxes))
   }
@@ -287,7 +290,7 @@ server <- function(input, output, session) {
   scenario_grid <- function(metric) {
     cell <- \(r, cl) {
       sel <- r == rz() && cl == closure()
-      tags$td(class = if (sel) "sel", fmt_pct(end_value(S, metric, r, cl)))
+      tags$td(class = if (sel) "sel", fmt_pct(end_value(S, metric, r, cl, REPORT_YEAR)))
     }
     tags$table(class = "table table-sm scen-grid",
                tags$thead(
@@ -297,8 +300,8 @@ server <- function(input, output, session) {
                ),
                tags$tbody(
                  map(RZ_LEVELS, \(r) tags$tr(tags$th(r), map(CLOSURES, \(cl) cell(r, cl)))),
-                 tags$tr(class = "bau-row", tags$th("Business as usual"),
-                         tags$td(colspan = length(CLOSURES), fmt_pct(end_value(S, metric, "BAU", 0)), span(class = "text-secondary", " (no closure)")))
+                 tags$tr(class = "bau-row", tags$th("No spawning closure"),
+                         tags$td(colspan = length(CLOSURES), fmt_pct(end_value(S, metric, "BAU", 0, REPORT_YEAR))))
                )
     )
   }
@@ -311,7 +314,7 @@ server <- function(input, output, session) {
   series_table <- function(metric) {
     L <- scenario_lines(S, metric, rz(), closure())
     f <- \(s) if (is.null(s)) rep("–", length(L$bau$year)) else formatC(s$m, format = "f", digits = 0)
-    d <- tibble(Year = as.character(L$bau$year), `Business as usual` = f(L$bau), `Closure only` = f(L$cl))
+    d <- tibble(Year = as.character(L$bau$year), `No spawning closure` = f(L$bau), `Closure only` = f(L$cl))
     if (rz() != "None") d[[paste(rz(), "zones + closure")]] <- f(L$rz)
     d
   }
