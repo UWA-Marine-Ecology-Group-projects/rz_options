@@ -213,7 +213,8 @@ server <- function(input, output, session) {
                       rz  = paste0(rz(), " recovery zones + ", closure_lab(closure()))))
   
   # shorter names for the hover box
-  SHORT <- reactive(c(bau = "No spawning closure", cl = "Closure only", rz = paste(rz(), "zones + closure")))
+  SHORT <- reactive(c(bau = "No spawning closure", cl = paste0(closure(), "-month spawning closure"),
+                      rz = paste0(rz(), " zones + ", closure(), "-month closure")))
   
   output$rz_txt <- renderText(opt_text(rz()))
   
