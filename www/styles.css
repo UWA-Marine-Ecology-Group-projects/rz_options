@@ -36,6 +36,9 @@ body { background: #f4f6f8; }
 .swatch-rz { border-color: #1d6fa5; }
 .swatch-cl { border-color: #d9622b; }
 .swatch-bau { border-color: #6c757d; border-top-style: dashed; border-top-width: 2px; }
+.swatch-target { border-top: 0; height: 0.8rem; background: rgba(144, 238, 144, 0.6); }
+.swatch-threshold { border-color: #f0a030; border-top-width: 2px; }
+.swatch-limit { border-color: #e03c31; border-top-width: 2px; }
 
 .accordion { margin-top: 1rem; }
 .refs p { margin-bottom: 0.5rem; }

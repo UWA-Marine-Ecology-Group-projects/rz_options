@@ -21,6 +21,12 @@ if (!exists("load_scenarios")) source("R/model.R", local = TRUE)
 S     <- load_scenarios("data")
 START <- min(S$year)
 END   <- max(S$year)
+# spawning-biomass reference levels (% unfished), shown on the biomass chart when ticked in the sidebar
+REF <- list(target = c(40, 60), threshold = 30, limit = 20)
+REF_COL <- c(target = "rgba(144,238,144,0.35)", threshold = "#f0a030", limit = "#e03c31")
+REF_NAMES <- c(target = sprintf("Target range (%g–%g%%)", REF$target[1], REF$target[2]),
+               threshold = sprintf("Threshold (%g%%)", REF$threshold), limit = sprintf("Limit (%g%%)", REF$limit))
+
 REPORT_YEAR <- 2040  # year shown in the value boxes and the all-scenarios table
 OPTS  <- read_csv("data/rz_options.csv", show_col_types = FALSE) |> filter(preset_label %in% RZ_LEVELS)
 
@@ -71,6 +77,7 @@ about_modal <- function() {
 }
 
 TIPS <- list(
+  refs    = "Adds the target range (green), threshold (orange) and limit (red) to the spawning biomass chart.",
   bau     = "Adds the no spawning closure scenario (dashed line): existing NTZs only, no spawning closure.",
   closure = "Months closed to fishing each year during the spawning season: none, 5, 6, 7 or 9 months. Recovery
              zones with no closure have been modelled for spawning biomass only so far.",
@@ -95,6 +102,7 @@ sidebar_ui <- sidebar(
   div(class = "control-note", textOutput("rz_txt", inline = TRUE)),
   hr(),
   checkboxInput("bau", info("Show no spawning closure option on plots", TIPS$bau), FALSE),
+  checkboxInput("refs", info("Show reference levels", TIPS$refs), FALSE),
   checkboxInput("band", info("Show 95% interval", TIPS$band), FALSE),
   actionButton("reset", "Reset", icon = icon("rotate-left"), class = "btn-sm btn-link px-0")
 )
@@ -205,6 +213,7 @@ server <- function(input, output, session) {
     updateRadioButtons(session, "closure", selected = as.character(CL0))
     updateRadioButtons(session, "rz", selected = RZ0)
     updateCheckboxInput(session, "bau", value = FALSE)
+    updateCheckboxInput(session, "refs", value = FALSE)
     updateCheckboxInput(session, "band", value = FALSE)
   })
   
@@ -237,6 +246,19 @@ server <- function(input, output, session) {
                      line = list(color = COL[[k]], width = if (k == "bau") 2 else 2.5, dash = if (k == "bau") "dash" else "solid"),
                      showlegend = FALSE)
     }
+    start_line <- list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = start_level(metric), y1 = start_level(metric),
+                       line = list(color = "#adb5bd", width = 1, dash = "dot"))
+    refs_on <- isTRUE(input$refs) && metric == "biomass"
+    ref_shapes <- if (refs_on) list(
+      list(type = "rect", xref = "x", x0 = START, x1 = END, y0 = REF$target[1], y1 = REF$target[2],
+           fillcolor = REF_COL[["target"]], line = list(width = 0), layer = "below"),
+      list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = REF$threshold, y1 = REF$threshold,
+           line = list(color = REF_COL[["threshold"]], width = 1.5)),
+      list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = REF$limit, y1 = REF$limit,
+           line = list(color = REF_COL[["limit"]], width = 1.5))
+    )
+    ytop <- max(ymax_for(metric, input$band), if (refs_on) REF$target[2]) * 1.05
+
     note <- if (rz() != "None" && is.null(L$rz))
       list(list(text = paste0(NAMES()[["rz"]], ": not yet modelled for ", tolower(METRICS[[metric]])), xref = "paper", yref = "paper",
                 x = 0.02, y = 0.98, xanchor = "left", yanchor = "top", showarrow = FALSE, font = list(color = "#6c757d")))
@@ -250,9 +272,8 @@ server <- function(input, output, session) {
         xaxis = list(title = "", tickvals = seq(START, END, by = 5), range = c(START - 1, END + 1), showgrid = FALSE,
                      fixedrange = TRUE),
         yaxis = list(title = list(text = YLAB[[metric]], standoff = 10), automargin = TRUE, ticksuffix = "%",
-                     range = c(0, ymax_for(metric, input$band) * 1.05), gridcolor = "#e9ecef", zeroline = FALSE, fixedrange = TRUE),
-        shapes = list(list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = start_level(metric), y1 = start_level(metric),
-                           line = list(color = "#adb5bd", width = 1, dash = "dot"))),
+                     range = c(0, ytop), gridcolor = "#e9ecef", zeroline = FALSE, fixedrange = TRUE),
+        shapes = c(ref_shapes, list(start_line)),
         annotations = note
       ) |>
       config(displayModeBar = FALSE)
@@ -262,8 +283,10 @@ server <- function(input, output, session) {
   chart_legend <- function(metric) {
     L <- scenario_lines(S, metric, rz(), closure())
     keys <- c("rz", "cl", "bau")[c(!is.null(L$rz), !is.null(L$cl), show_bau())]
+    refs <- if (isTRUE(input$refs) && metric == "biomass") names(REF_NAMES)
     div(class = "chart-legend",
-        map(keys, \(k) span(class = "item", span(class = paste("swatch", paste0("swatch-", k))), NAMES()[[k]])))
+        map(keys, \(k) span(class = "item", span(class = paste("swatch", paste0("swatch-", k))), NAMES()[[k]])),
+        map(refs, \(k) span(class = "item", span(class = paste("swatch", paste0("swatch-", k))), REF_NAMES[[k]])))
   }
   output$legend_biomass <- renderUI(chart_legend("biomass"))
   output$legend_eggs    <- renderUI(chart_legend("eggs"))
@@ -343,4 +366,4 @@ server <- function(input, output, session) {
   )
 }
 
-shinyApp(ui, server)
+shinyApp(ui, server)
