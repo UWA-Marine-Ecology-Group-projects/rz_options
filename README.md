@@ -23,11 +23,11 @@ The old digitised files (`data/aston2025_*.csv`) are no longer used and can be d
 
 | Recovery zones | Closure |
 |---|---|
-| None (existing NTZs only), Small, Medium, Large, Extra large (40% of mapped reef) | 5, 6, 7, 9 months |
-| Business as usual (existing NTZs, no closure) | – |
+| None (existing NTZs only), Small, Medium, Large, Extra large (40% of mapped reef) | None, 5, 6, 7, 9 months |
 
-All 21 scenarios have both spawning biomass and egg production, 2025–2060. The "No NTZs" scenarios (all existing
-NTZs removed) are not shown.
+No zones with no closure is the "no spawning closure" scenario (business as usual). Recovery zones with no closure
+have spawning biomass only, without a 95% interval; every other scenario has both metrics with intervals, 2025–2060.
+The "No NTZs" scenarios (all existing NTZs removed) are not shown.
 
 ## Requirements
 
@@ -61,4 +61,5 @@ Values to check (2060, % of unfished): business as usual 25% biomass and 41% egg
 ## Updating the data
 
 Put new model output in `data-raw/` as `median_biomass_scenarios_1.csv` and `median_egg_production_scenarios_1.csv`,
-then run `source("data-raw/prep_scenarios.R")` from the `rz_options` folder.
+plus `median_biomass_scenarios2_1.csv` (the no-closure runs), then run `source("data-raw/prep_scenarios.R")`
+from the `rz_options` folder.

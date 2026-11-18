@@ -12,7 +12,7 @@ library(dplyr)
 library(readr)
 
 RZ_LEVELS <- c("None", "Small", "Medium", "Large", "Extra large")  # recovery-zone options ("None" = existing NTZs only)
-CLOSURES  <- c(5L, 6L, 7L, 9L)                      # modelled spawning-closure lengths (months)
+CLOSURES  <- c(0L, 5L, 6L, 7L, 9L)                  # modelled spawning-closure lengths (months; 0 = no closure)
 METRICS   <- c(biomass = "Spawning biomass", eggs = "Egg production")
 RZ0       <- "Large"                                # defaults
 CL0       <- 5L
@@ -20,7 +20,9 @@ CL0       <- 5L
 # all scenarios, with relative values (proportion of unfished) expressed as %
 load_scenarios <- function(dir = "data") {
   read_csv(file.path(dir, "scenarios.csv"), show_col_types = FALSE) |>
-    mutate(m_pct = rel * 100, lo_pct = rel_lo * 100, hi_pct = rel_hi * 100) |>
+    # business as usual is the same scenario as no new zones with no closure
+    mutate(closure = if_else(rz == "BAU", 0L, as.integer(closure)), rz = if_else(rz == "BAU", "None", rz),
+           m_pct = rel * 100, lo_pct = rel_lo * 100, hi_pct = rel_hi * 100) |>
     arrange(metric, rz, closure, year)
 }
 
@@ -33,10 +35,11 @@ get_series <- function(S, metric, rz, closure) {
   list(year = s$year, m = s$m_pct, lo = s$lo_pct, hi = s$hi_pct, scenario = s$scenario[1])
 }
 
-# the three lines on each chart: business as usual, closure only (no new zones), recovery zones + closure
+# the three lines on each chart: no spawning closure (existing NTZs only), closure only (no new zones), and
+# recovery zones + closure. With no closure selected (closure = 0) the closure-only line is the same as the first.
 scenario_lines <- function(S, metric, rz, closure) {
-  list(bau = get_series(S, metric, "BAU", 0),
-       cl  = get_series(S, metric, "None", closure),
+  list(bau = get_series(S, metric, "None", 0),
+       cl  = if (closure > 0) get_series(S, metric, "None", closure),
        rz  = if (rz != "None") get_series(S, metric, rz, closure))
 }
 
