@@ -30,9 +30,14 @@ body { background: #f4f6f8; }
 .stat-bau { border-color: #6c757d; border-left-style: dashed; }
 .stat-cl { border-color: #d9622b; }
 .stat-rz { border-color: #1d6fa5; }
+.stat-fx { border-color: #7a4fa0; }
 .stat-title { font-size: 0.8rem; color: #6c757d; }
 .stat-value { font-size: 1.6rem; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .stat-note { font-size: 0.8rem; color: #6c757d; }
+
+/* year picker above the all-scenarios grids */
+.grid-year { max-width: 360px; margin-bottom: 0.5rem; }
+.grid-year .form-group { margin-bottom: 0; }
 
 /* scenario grid (not .grid: Bootstrap uses that class for CSS grid layout) */
 .scen-grid { font-variant-numeric: tabular-nums; width: 100%; }
@@ -48,6 +53,7 @@ body { background: #f4f6f8; }
 .swatch { display: inline-block; flex: none; width: 1.5rem; border-top: 2.5px solid; }
 .swatch-rz { border-color: #1d6fa5; }
 .swatch-cl { border-color: #d9622b; }
+.swatch-fx { border-color: #7a4fa0; border-top-width: 2px; }
 .swatch-bau { border-color: #6c757d; border-top-style: dashed; border-top-width: 2px; }
 .swatch-target { border-top: 0; height: 0.8rem; background: rgba(144, 238, 144, 0.6); }
 .swatch-threshold { border-color: #f0a030; border-top-width: 2px; }

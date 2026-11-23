@@ -29,7 +29,7 @@ REF_COL <- c(target = "rgba(144,238,144,0.35)", threshold = "#f0a030", limit = "
 REF_NAMES <- c(target = sprintf("Target range (%g–%g%%)", REF$target[1], REF$target[2]),
                threshold = sprintf("Threshold (%g%%)", REF$threshold), limit = sprintf("Limit (%g%%)", REF$limit))
 
-REPORT_YEAR <- 2040              # year shown in the all-scenarios table
+REPORT_YEAR <- 2040              # starting year for the all-scenarios table (picked with a slider)
 BOX_YEARS   <- c(2030, 2040)     # years shown in the summary boxes under each chart
 OPTS  <- read_csv("data/rz_options.csv", show_col_types = FALSE) |> filter(preset_label %in% RZ_LEVELS)
 
@@ -162,8 +162,12 @@ ui <- page_sidebar(
   ),
   
   card(
-    card_header(div(class = "objective", "All scenarios"), h5(class = "mb-0", paste(REPORT_YEAR, "Spawning Biomass and Egg Production (% of unfished)"))),
+    card_header(div(class = "objective", "All scenarios"),
+                h5(class = "mb-0", textOutput("grid_title", inline = TRUE))),
     card_body(
+      div(class = "grid-year",
+          sliderInput("grid_year", "Year", min = START, max = END, value = REPORT_YEAR, step = 1, sep = "",
+                      ticks = FALSE, width = "100%")),
       layout_columns(
         col_widths = breakpoints(sm = 12, md = c(6, 6)),
         div(h6("Spawning biomass"), uiOutput("grid_biomass")),
@@ -238,6 +242,7 @@ server <- function(input, output, session) {
     updateCheckboxInput(session, "fixed", value = FALSE)
     updateCheckboxInput(session, "refs", value = FALSE)
     updateCheckboxInput(session, "band", value = FALSE)
+    updateSliderInput(session, "grid_year", value = REPORT_YEAR)
   })
   
   closure <- reactive(CLOSURES[match(input$closure, closure_tick(CLOSURES))])
@@ -357,10 +362,12 @@ server <- function(input, output, session) {
   output$boxes_eggs    <- renderUI(year_boxes("eggs"))
   
   # ---- all-scenario grids ----
+  grid_year <- reactive(if (is.null(input$grid_year)) REPORT_YEAR else input$grid_year)
+  output$grid_title <- renderText(paste(grid_year(), "Spawning Biomass and Egg Production (% of unfished)"))
   scenario_grid <- function(metric) {
     cell <- \(r, cl) {
       sel <- r == rz() && cl == closure()
-      tags$td(class = if (sel) "sel", fmt_pct(end_value(S, metric, r, cl, REPORT_YEAR)))
+      tags$td(class = if (sel) "sel", fmt_pct(end_value(S, metric, r, cl, grid_year())))
     }
     tags$table(class = "table table-sm scen-grid",
                tags$thead(

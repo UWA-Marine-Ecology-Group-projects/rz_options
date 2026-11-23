@@ -26,6 +26,12 @@ extra <- tribble(
   "data-raw/median_egg_production_scenarios3.csv",    "eggs",    FALSE   # adds 4- and 8-month closures, RZ no closure
 )
 
+# use whichever input files are in data-raw/
+skipped <- c(files[!file.exists(files)], extra$path[!file.exists(extra$path)])
+if (length(skipped) > 0) message("Not found, skipped: ", paste(skipped, collapse = ", "))
+files <- files[file.exists(files)]
+extra <- filter(extra, file.exists(path))
+
 # recovery-zone option and closure length (0 = none) from the scenario name
 label_scenarios <- function(d) {
   d |>
@@ -57,7 +63,8 @@ read_extra <- function(path, metric, pct) {
     mutate(metric = metric, rel = if (pct) rel / 100 else rel, rel_lo = NA_real_, rel_hi = NA_real_)
 }
 
-scen <- bind_rows(lapply(names(files), \(m) read_metric(files[[m]], m)))
+scen <- bind_rows(tibble(metric = character(), rz = character(), closure = integer(), year = double()),  # in case no main files
+                  lapply(names(files), \(m) read_metric(files[[m]], m)))
 for (i in seq_len(nrow(extra))) {
   more <- read_extra(extra$path[i], extra$metric[i], extra$pct[i]) |>
     anti_join(scen, by = c("metric", "rz", "closure", "year"))
@@ -68,6 +75,7 @@ scen <- scen |>
   select(scenario, rz, closure, metric, year, rel, rel_lo, rel_hi) |>
   arrange(metric, rz, closure, year)
 
-stopifnot(!anyNA(select(scen, -rel_lo, -rel_hi)), all(scen$rel < 1.5))  # all proportions of unfished
+stopifnot(all(c("biomass", "eggs") %in% scen$metric),        # some data for both metrics
+          !anyNA(select(scen, -rel_lo, -rel_hi)), all(scen$rel < 1.5))  # all proportions of unfished
 write_csv(scen, "data/scenarios.csv", na = "")
 count(scen, metric, rz, closure)
