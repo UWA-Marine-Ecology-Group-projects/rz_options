@@ -6,8 +6,9 @@
 # Only the summary columns are kept; the 95% interval is put on the same relative scale as the median.
 # The "No NTZs" scenarios (all existing NTZs removed) are dropped.
 #
-# Extra runs with medians only (Year, Scenario, relative_* in %) are added from `extra`, for scenarios not
-# already in the main files. These have no 95% interval.
+# Extra runs with medians only (Year, Scenario, relative_*) are added from `extra`, in order, for scenarios not
+# already in the main files or an earlier extra file. These have no 95% interval. `pct` says whether the file gives
+# relative values in % (TRUE) or as a proportion (FALSE).
 #
 # Business as usual is stored as recovery zones "None" with closure 0 (no spawning closure).
 
@@ -18,7 +19,12 @@ library(stringr)
 files <- c(biomass = "data-raw/median_biomass_scenarios_1.csv",
            eggs    = "data-raw/median_egg_production_scenarios_1.csv")
 
-extra <- c(biomass = "data-raw/median_biomass_scenarios2_1.csv")  # adds recovery zones with no temporal closure
+extra <- tribble(
+  ~path,                                              ~metric,   ~pct,
+  "data-raw/median_biomass_scenarios2_1.csv",         "biomass", TRUE,   # recovery zones with no temporal closure
+  "data-raw/median_biomass_scenarios3.csv",           "biomass", TRUE,   # adds 4- and 8-month closures
+  "data-raw/median_egg_production_scenarios3.csv",    "eggs",    FALSE   # adds 4- and 8-month closures, RZ no closure
+)
 
 # recovery-zone option and closure length (0 = none) from the scenario name
 label_scenarios <- function(d) {
@@ -44,21 +50,24 @@ read_metric <- function(path, metric) {
            rel_hi = hi * rel / median)
 }
 
-read_extra <- function(path, metric) {
+read_extra <- function(path, metric, pct) {
   read_csv(path, show_col_types = FALSE) |>
     select(Scenario, year = Year, rel = starts_with("relative_")) |>
     label_scenarios() |>
-    mutate(metric = metric, rel = rel / 100, rel_lo = NA_real_, rel_hi = NA_real_)  # given in %
+    mutate(metric = metric, rel = if (pct) rel / 100 else rel, rel_lo = NA_real_, rel_hi = NA_real_)
 }
 
-main <- bind_rows(lapply(names(files), \(m) read_metric(files[[m]], m)))
-more <- bind_rows(lapply(names(extra), \(m) read_extra(extra[[m]], m))) |>
-  anti_join(main, by = c("metric", "rz", "closure", "year"))
+scen <- bind_rows(lapply(names(files), \(m) read_metric(files[[m]], m)))
+for (i in seq_len(nrow(extra))) {
+  more <- read_extra(extra$path[i], extra$metric[i], extra$pct[i]) |>
+    anti_join(scen, by = c("metric", "rz", "closure", "year"))
+  scen <- bind_rows(scen, more)
+}
 
-scen <- bind_rows(main, more) |>
+scen <- scen |>
   select(scenario, rz, closure, metric, year, rel, rel_lo, rel_hi) |>
   arrange(metric, rz, closure, year)
 
-stopifnot(!anyNA(select(scen, -rel_lo, -rel_hi)))
+stopifnot(!anyNA(select(scen, -rel_lo, -rel_hi)), all(scen$rel < 1.5))  # all proportions of unfished
 write_csv(scen, "data/scenarios.csv", na = "")
 count(scen, metric, rz, closure)

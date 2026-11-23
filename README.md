@@ -34,7 +34,7 @@ The "No NTZs" scenarios (all existing NTZs removed) are not shown.
 R 4.1 or later and these packages:
 
 ```r
-install.packages(c("shiny", "bslib", "bsicons", "plotly", "dplyr", "readr", "purrr"))
+install.packages(c("shiny", "shinyWidgets", "bslib", "bsicons", "plotly", "dplyr", "readr", "purrr"))
 ```
 
 `data-raw/prep_scenarios.R` also needs `stringr`.
@@ -50,10 +50,12 @@ On shinyapps.io or Posit Connect: `rsconnect::deployApp("rz_options")`.
 
 ## Using the dashboard
 
-- Pick a closure length (5, 6, 7 or 9 months) and a recovery-zone option (None to Extra large) in the sidebar.
+- Use the two sliders in the sidebar to pick a closure length (None, 5, 6, 7 or 9 months) and a recovery-zone
+  option (None to Extra large). The sliders snap to the modelled options only.
 - Each chart shows business as usual (grey dashed), the closure with no new zones (orange) and the closure with
   the chosen recovery zones (blue), as a percentage of unfished. The dotted line is the common 2025 starting level.
-- The "All scenarios" card shows every scenario's 2060 value, with the selected one highlighted.
+- The boxes under each chart give the selected scenarios' values in 2030 and 2040 (set by `BOX_YEARS` in `app.R`).
+- The "All scenarios" card shows every scenario's 2040 value (`REPORT_YEAR`), with the selected one highlighted.
 
 Values to check (2060, % of unfished): business as usual 25% biomass and 41% eggs; 5-month closure only 29% and
 49%; Large zones + 5-month closure 39% and 68%; Extra large zones + 9-month closure 52% and 92%.

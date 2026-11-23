@@ -1,0 +1,11 @@
+name: rz_scenarios
+title: rz_scenarios
+username: marineecology
+account: marineecology
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 01a1f7d3-49ad-7bb0-e116-9e2e8767ab10
+appGuid:
+bundleId:
+url: https://connect.posit.cloud/marineecology/content/01a1f7d3-49ad-7bb0-e116-9e2e8767ab10
+version: 1

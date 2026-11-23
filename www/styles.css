@@ -8,10 +8,23 @@ body { background: #f4f6f8; }
 .bslib-sidebar-layout > .sidebar { background: #fff; }
 .control-note { font-size: 0.85rem; color: #495057; margin-top: -0.5rem; }
 
+/* scenario sliders: long tick labels ("Extra large") wrap onto two lines; short ones keep their natural width so none are hidden */
+.sidebar .irs { margin: 0 0.4rem; }
+.sidebar .irs.irs-with-grid { height: 76px; }
+.sidebar .irs-grid { height: 44px; }
+.sidebar .irs-grid-text { width: auto; max-width: 3.2rem; white-space: normal; text-align: center; line-height: 1.1;
+                          font-size: 0.75rem; color: #495057; top: 12px; bottom: auto; }
+.sidebar .irs-grid-text.js-grid-text-0 { text-align: left; }   /* first and last labels sit flush with the ends */
+.sidebar .irs-grid-text.js-grid-text-4 { text-align: right; }
+
 .card { border: none; box-shadow: 0 1px 3px rgba(16, 24, 40, 0.08); }
 .card-header { background: #fff; }
 .objective { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6c757d; }
 .card-footer { background: #fafbfc; }
+
+/* summary boxes: one row per year */
+.box-year + .box-year { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #e9ecef; }
+.box-year-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6c757d; margin-bottom: 0.35rem; }
 
 .stat { border-left: 3px solid #adb5bd; padding: 0.15rem 0 0.15rem 0.6rem; }
 .stat-bau { border-color: #6c757d; border-left-style: dashed; }
@@ -42,4 +55,4 @@ body { background: #f4f6f8; }
 
 .accordion { margin-top: 1rem; }
 .refs p { margin-bottom: 0.5rem; }
-.table { font-size: 0.85rem; }
+.table { font-size: 0.85rem; }

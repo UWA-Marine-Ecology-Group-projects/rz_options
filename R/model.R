@@ -12,7 +12,10 @@ library(dplyr)
 library(readr)
 
 RZ_LEVELS <- c("None", "Small", "Medium", "Large", "Extra large")  # recovery-zone options ("None" = existing NTZs only)
-CLOSURES  <- c(0L, 5L, 6L, 7L, 9L)                  # modelled spawning-closure lengths (months; 0 = no closure)
+CLOSURES  <- c(0L, 4L, 5L, 6L, 7L, 8L, 9L)          # spawning-closure lengths (months; 0 = no closure). The app shows
+# only those that are in data/scenarios.csv
+CLOSURE_MONTHS <- c(`4` = "Dec–Mar", `8` = "Oct–May")  # months closed, where known
+CL_FIXED  <- 8L                                     # closure (no new zones) that can be kept on the charts as a comparison
 METRICS   <- c(biomass = "Spawning biomass", eggs = "Egg production")
 RZ0       <- "Large"                                # defaults
 CL0       <- 5L
@@ -35,12 +38,14 @@ get_series <- function(S, metric, rz, closure) {
   list(year = s$year, m = s$m_pct, lo = s$lo_pct, hi = s$hi_pct, scenario = s$scenario[1])
 }
 
-# the three lines on each chart: no spawning closure (existing NTZs only), closure only (no new zones), and
-# recovery zones + closure. With no closure selected (closure = 0) the closure-only line is the same as the first.
-scenario_lines <- function(S, metric, rz, closure) {
+# the lines on each chart: no spawning closure (existing NTZs only), closure only (no new zones), recovery zones +
+# closure, and optionally a fixed closure with no new zones (`fixed`, months). With no closure selected (closure = 0)
+# the closure-only line is the same as the first; the fixed line is left out when it is the selected closure.
+scenario_lines <- function(S, metric, rz, closure, fixed = NULL) {
   list(bau = get_series(S, metric, "None", 0),
        cl  = if (closure > 0) get_series(S, metric, "None", closure),
-       rz  = if (rz != "None") get_series(S, metric, rz, closure))
+       rz  = if (rz != "None") get_series(S, metric, rz, closure),
+       fx  = if (!is.null(fixed) && fixed != closure) get_series(S, metric, "None", fixed))
 }
 
 # value in a given year, or the final year if none is given (% of unfished)
