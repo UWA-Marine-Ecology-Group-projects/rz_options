@@ -1,0 +1,1549 @@
+"","Year","Scenario","relative_biomass"
+"1",2025,"Business as usual",14.7002841588054
+"2",2026,"Business as usual",14.5106567541994
+"3",2027,"Business as usual",14.8108749579271
+"4",2028,"Business as usual",15.342488373276
+"5",2029,"Business as usual",15.8978143608829
+"6",2030,"Business as usual",16.466228570002
+"7",2031,"Business as usual",17.0379380771422
+"8",2032,"Business as usual",17.7226275451843
+"9",2033,"Business as usual",18.2221852650418
+"10",2034,"Business as usual",18.5937891411869
+"11",2035,"Business as usual",18.9968059281341
+"12",2036,"Business as usual",19.5088580888396
+"13",2037,"Business as usual",19.9758832899446
+"14",2038,"Business as usual",20.5587312333826
+"15",2039,"Business as usual",21.0049509797434
+"16",2040,"Business as usual",21.510849732519
+"17",2041,"Business as usual",21.7025279683035
+"18",2042,"Business as usual",22.0990754623664
+"19",2043,"Business as usual",22.4273310941525
+"20",2044,"Business as usual",22.5452329723857
+"21",2045,"Business as usual",22.8074584228139
+"22",2046,"Business as usual",22.7932670950141
+"23",2047,"Business as usual",23.3048886769669
+"24",2048,"Business as usual",23.5092188392113
+"25",2049,"Business as usual",23.7937414766381
+"26",2050,"Business as usual",23.8027002679391
+"27",2051,"Business as usual",23.7884847174642
+"28",2052,"Business as usual",23.8827577333897
+"29",2053,"Business as usual",24.2804349159208
+"30",2054,"Business as usual",24.2220183645963
+"31",2055,"Business as usual",24.4655283034162
+"32",2056,"Business as usual",24.7141137437647
+"33",2057,"Business as usual",24.7299688331171
+"34",2058,"Business as usual",24.6262812830236
+"35",2059,"Business as usual",24.5972430236429
+"36",2060,"Business as usual",24.5513783821203
+"37",2025,"Extra large RZ 4 month temporal closure",14.7002841588054
+"38",2026,"Extra large RZ 4 month temporal closure",15.0317530620225
+"39",2027,"Extra large RZ 4 month temporal closure",16.0602800299146
+"40",2028,"Extra large RZ 4 month temporal closure",17.1799914423048
+"41",2029,"Extra large RZ 4 month temporal closure",18.2972819219236
+"42",2030,"Extra large RZ 4 month temporal closure",19.4214271082287
+"43",2031,"Extra large RZ 4 month temporal closure",20.5373726519297
+"44",2032,"Extra large RZ 4 month temporal closure",21.7734681196199
+"45",2033,"Extra large RZ 4 month temporal closure",22.9041156663219
+"46",2034,"Extra large RZ 4 month temporal closure",23.8399206899191
+"47",2035,"Extra large RZ 4 month temporal closure",24.756565845175
+"48",2036,"Extra large RZ 4 month temporal closure",25.8000723520376
+"49",2037,"Extra large RZ 4 month temporal closure",26.9624227645168
+"50",2038,"Extra large RZ 4 month temporal closure",28.1191061348617
+"51",2039,"Extra large RZ 4 month temporal closure",29.3978187191673
+"52",2040,"Extra large RZ 4 month temporal closure",30.3306481469481
+"53",2041,"Extra large RZ 4 month temporal closure",31.2538951369881
+"54",2042,"Extra large RZ 4 month temporal closure",32.0588346526905
+"55",2043,"Extra large RZ 4 month temporal closure",32.9074255407402
+"56",2044,"Extra large RZ 4 month temporal closure",33.8417800599531
+"57",2045,"Extra large RZ 4 month temporal closure",34.4975135928421
+"58",2046,"Extra large RZ 4 month temporal closure",34.8368111606961
+"59",2047,"Extra large RZ 4 month temporal closure",35.4042602078408
+"60",2048,"Extra large RZ 4 month temporal closure",36.6217389610552
+"61",2049,"Extra large RZ 4 month temporal closure",37.0669820011117
+"62",2050,"Extra large RZ 4 month temporal closure",37.9186340114137
+"63",2051,"Extra large RZ 4 month temporal closure",38.3846165653712
+"64",2052,"Extra large RZ 4 month temporal closure",38.7042085029079
+"65",2053,"Extra large RZ 4 month temporal closure",39.1959458358628
+"66",2054,"Extra large RZ 4 month temporal closure",39.9613363360728
+"67",2055,"Extra large RZ 4 month temporal closure",40.3951426896416
+"68",2056,"Extra large RZ 4 month temporal closure",41.158195354184
+"69",2057,"Extra large RZ 4 month temporal closure",41.6916157477097
+"70",2058,"Extra large RZ 4 month temporal closure",41.8235182059589
+"71",2059,"Extra large RZ 4 month temporal closure",42.0337893251551
+"72",2060,"Extra large RZ 4 month temporal closure",42.1484894621077
+"73",2025,"Extra large RZ 8 month closure",14.7002841588054
+"74",2026,"Extra large RZ 8 month closure",15.8398960305683
+"75",2027,"Extra large RZ 8 month closure",17.178299627732
+"76",2028,"Extra large RZ 8 month closure",18.543493910234
+"77",2029,"Extra large RZ 8 month closure",19.8873646428569
+"78",2030,"Extra large RZ 8 month closure",21.2299257408819
+"79",2031,"Extra large RZ 8 month closure",22.5840629271526
+"80",2032,"Extra large RZ 8 month closure",24.0090366049273
+"81",2033,"Extra large RZ 8 month closure",25.4403120480135
+"82",2034,"Extra large RZ 8 month closure",26.6746890077365
+"83",2035,"Extra large RZ 8 month closure",27.8154141712364
+"84",2036,"Extra large RZ 8 month closure",28.9676974085244
+"85",2037,"Extra large RZ 8 month closure",30.4772514539319
+"86",2038,"Extra large RZ 8 month closure",31.8960009224703
+"87",2039,"Extra large RZ 8 month closure",33.3752853417366
+"88",2040,"Extra large RZ 8 month closure",34.5321610378742
+"89",2041,"Extra large RZ 8 month closure",35.791209868588
+"90",2042,"Extra large RZ 8 month closure",36.8307714440211
+"91",2043,"Extra large RZ 8 month closure",37.7730494524286
+"92",2044,"Extra large RZ 8 month closure",39.1458197118499
+"93",2045,"Extra large RZ 8 month closure",39.8558555879733
+"94",2046,"Extra large RZ 8 month closure",40.2362044136324
+"95",2047,"Extra large RZ 8 month closure",41.0379764746768
+"96",2048,"Extra large RZ 8 month closure",42.4107627733583
+"97",2049,"Extra large RZ 8 month closure",43.022717374432
+"98",2050,"Extra large RZ 8 month closure",43.9592468864501
+"99",2051,"Extra large RZ 8 month closure",44.57291833509
+"100",2052,"Extra large RZ 8 month closure",45.0656691617092
+"101",2053,"Extra large RZ 8 month closure",45.5772940919352
+"102",2054,"Extra large RZ 8 month closure",46.4706412003922
+"103",2055,"Extra large RZ 8 month closure",46.9633628765988
+"104",2056,"Extra large RZ 8 month closure",47.8372322071524
+"105",2057,"Extra large RZ 8 month closure",48.3570754648474
+"106",2058,"Extra large RZ 8 month closure",48.7511873613616
+"107",2059,"Extra large RZ 8 month closure",48.93775164715
+"108",2060,"Extra large RZ 8 month closure",49.197387291304
+"109",2025,"Extra large RZ no temporal closure",14.7002841588054
+"110",2026,"Extra large RZ no temporal closure",15.0249470885891
+"111",2027,"Extra large RZ no temporal closure",15.9050082450111
+"112",2028,"Extra large RZ no temporal closure",16.95299742917
+"113",2029,"Extra large RZ no temporal closure",18.0125530062143
+"114",2030,"Extra large RZ no temporal closure",19.0834513309057
+"115",2031,"Extra large RZ no temporal closure",20.1469757325783
+"116",2032,"Extra large RZ no temporal closure",21.3391729589076
+"117",2033,"Extra large RZ no temporal closure",22.4029075022986
+"118",2034,"Extra large RZ no temporal closure",23.2917892541302
+"119",2035,"Extra large RZ no temporal closure",24.149013057743
+"120",2036,"Extra large RZ no temporal closure",25.1645287423102
+"121",2037,"Extra large RZ no temporal closure",26.2548732852835
+"122",2038,"Extra large RZ no temporal closure",27.3465593236381
+"123",2039,"Extra large RZ no temporal closure",28.6002020007229
+"124",2040,"Extra large RZ no temporal closure",29.4724424926982
+"125",2041,"Extra large RZ no temporal closure",30.3278109889084
+"126",2042,"Extra large RZ no temporal closure",31.0966652748294
+"127",2043,"Extra large RZ no temporal closure",31.8879652981758
+"128",2044,"Extra large RZ no temporal closure",32.7488857514718
+"129",2045,"Extra large RZ no temporal closure",33.3760462741486
+"130",2046,"Extra large RZ no temporal closure",33.7040430998295
+"131",2047,"Extra large RZ no temporal closure",34.2387226651319
+"132",2048,"Extra large RZ no temporal closure",35.417204404088
+"133",2049,"Extra large RZ no temporal closure",35.9301857635874
+"134",2050,"Extra large RZ no temporal closure",36.6987535348062
+"135",2051,"Extra large RZ no temporal closure",37.0873734068452
+"136",2052,"Extra large RZ no temporal closure",37.4011031344819
+"137",2053,"Extra large RZ no temporal closure",37.9713548765859
+"138",2054,"Extra large RZ no temporal closure",38.6422289270543
+"139",2055,"Extra large RZ no temporal closure",39.0340516032323
+"140",2056,"Extra large RZ no temporal closure",39.8622262554948
+"141",2057,"Extra large RZ no temporal closure",40.3677244881937
+"142",2058,"Extra large RZ no temporal closure",40.4393101177149
+"143",2059,"Extra large RZ no temporal closure",40.6422943675532
+"144",2060,"Extra large RZ no temporal closure",40.7700379237608
+"145",2025,"Extra large RZ 10 month closure",14.7002841588054
+"146",2026,"Extra large RZ 10 month closure",16.3897673852315
+"147",2027,"Extra large RZ 10 month closure",18.0983473512235
+"148",2028,"Extra large RZ 10 month closure",19.7906131921499
+"149",2029,"Extra large RZ 10 month closure",21.4399794319172
+"150",2030,"Extra large RZ 10 month closure",23.0763907819767
+"151",2031,"Extra large RZ 10 month closure",24.7150328591364
+"152",2032,"Extra large RZ 10 month closure",26.3989394947323
+"153",2033,"Extra large RZ 10 month closure",28.125073351152
+"154",2034,"Extra large RZ 10 month closure",29.7958511939249
+"155",2035,"Extra large RZ 10 month closure",31.2294343333938
+"156",2036,"Extra large RZ 10 month closure",32.6546410204277
+"157",2037,"Extra large RZ 10 month closure",34.4336967564487
+"158",2038,"Extra large RZ 10 month closure",36.3057471376929
+"159",2039,"Extra large RZ 10 month closure",37.9498276514261
+"160",2040,"Extra large RZ 10 month closure",39.7022241928189
+"161",2041,"Extra large RZ 10 month closure",41.1574465158397
+"162",2042,"Extra large RZ 10 month closure",42.4165712588032
+"163",2043,"Extra large RZ 10 month closure",43.7195513527558
+"164",2044,"Extra large RZ 10 month closure",45.3616095039348
+"165",2045,"Extra large RZ 10 month closure",46.4505105444692
+"166",2046,"Extra large RZ 10 month closure",46.87848433779
+"167",2047,"Extra large RZ 10 month closure",47.7649982051926
+"168",2048,"Extra large RZ 10 month closure",49.2844586535932
+"169",2049,"Extra large RZ 10 month closure",50.1804992054919
+"170",2050,"Extra large RZ 10 month closure",51.329197564029
+"171",2051,"Extra large RZ 10 month closure",52.2755961258345
+"172",2052,"Extra large RZ 10 month closure",52.7375817877189
+"173",2053,"Extra large RZ 10 month closure",53.5521142651313
+"174",2054,"Extra large RZ 10 month closure",54.4839850935766
+"175",2055,"Extra large RZ 10 month closure",55.3868082186858
+"176",2056,"Extra large RZ 10 month closure",56.0372269415382
+"177",2057,"Extra large RZ 10 month closure",56.8249936840319
+"178",2058,"Extra large RZ 10 month closure",57.4175925881518
+"179",2059,"Extra large RZ 10 month closure",57.624560250353
+"180",2060,"Extra large RZ 10 month closure",58.1156198672215
+"181",2025,"Extra large RZ 5 month closure",14.7002841588054
+"182",2026,"Extra large RZ 5 month closure",15.2193800406704
+"183",2027,"Extra large RZ 5 month closure",16.3221020513142
+"184",2028,"Extra large RZ 5 month closure",17.4997653005654
+"185",2029,"Extra large RZ 5 month closure",18.670429992216
+"186",2030,"Extra large RZ 5 month closure",19.8459484412433
+"187",2031,"Extra large RZ 5 month closure",21.0108196989121
+"188",2032,"Extra large RZ 5 month closure",22.299546878534
+"189",2033,"Extra large RZ 5 month closure",23.5041748355076
+"190",2034,"Extra large RZ 5 month closure",24.4932299234933
+"191",2035,"Extra large RZ 5 month closure",25.4673440922572
+"192",2036,"Extra large RZ 5 month closure",26.5302000218019
+"193",2037,"Extra large RZ 5 month closure",27.7536791632893
+"194",2038,"Extra large RZ 5 month closure",28.9911664639462
+"195",2039,"Extra large RZ 5 month closure",30.2955516626863
+"196",2040,"Extra large RZ 5 month closure",31.2762820029195
+"197",2041,"Extra large RZ 5 month closure",32.3243983388089
+"198",2042,"Extra large RZ 5 month closure",33.1425216513024
+"199",2043,"Extra large RZ 5 month closure",34.0213558540879
+"200",2044,"Extra large RZ 5 month closure",35.0482936139188
+"201",2045,"Extra large RZ 5 month closure",35.7064761135814
+"202",2046,"Extra large RZ 5 month closure",36.0650478952372
+"203",2047,"Extra large RZ 5 month closure",36.690916786369
+"204",2048,"Extra large RZ 5 month closure",37.9235542519042
+"205",2049,"Extra large RZ 5 month closure",38.3770667164577
+"206",2050,"Extra large RZ 5 month closure",39.2691406337268
+"207",2051,"Extra large RZ 5 month closure",39.7606918409072
+"208",2052,"Extra large RZ 5 month closure",40.1311563710569
+"209",2053,"Extra large RZ 5 month closure",40.5779003665624
+"210",2054,"Extra large RZ 5 month closure",41.3986017997142
+"211",2055,"Extra large RZ 5 month closure",41.8625295928037
+"212",2056,"Extra large RZ 5 month closure",42.617444959651
+"213",2057,"Extra large RZ 5 month closure",43.1607604273857
+"214",2058,"Extra large RZ 5 month closure",43.338312863608
+"215",2059,"Extra large RZ 5 month closure",43.5479983810047
+"216",2060,"Extra large RZ 5 month closure",43.66895229619
+"217",2025,"Extra large RZ 6 month closure",14.7002841588054
+"218",2026,"Extra large RZ 6 month closure",15.356787334601
+"219",2027,"Extra large RZ 6 month closure",16.4991149793814
+"220",2028,"Extra large RZ 6 month closure",17.7090814400502
+"221",2029,"Extra large RZ 6 month closure",18.9111728472882
+"222",2030,"Extra large RZ 6 month closure",20.1169992626105
+"223",2031,"Extra large RZ 6 month closure",21.3193260205289
+"224",2032,"Extra large RZ 6 month closure",22.6346778805026
+"225",2033,"Extra large RZ 6 month closure",23.8907646284409
+"226",2034,"Extra large RZ 6 month closure",24.9104366404822
+"227",2035,"Extra large RZ 6 month closure",25.9167129514776
+"228",2036,"Extra large RZ 6 month closure",26.9948619641937
+"229",2037,"Extra large RZ 6 month closure",28.2682684952414
+"230",2038,"Extra large RZ 6 month closure",29.5401442417835
+"231",2039,"Extra large RZ 6 month closure",30.866917435218
+"232",2040,"Extra large RZ 6 month closure",31.8740800934811
+"233",2041,"Extra large RZ 6 month closure",32.9769182487147
+"234",2042,"Extra large RZ 6 month closure",33.8433826559906
+"235",2043,"Extra large RZ 6 month closure",34.7371407947671
+"236",2044,"Extra large RZ 6 month closure",35.8248667005331
+"237",2045,"Extra large RZ 6 month closure",36.4852834712953
+"238",2046,"Extra large RZ 6 month closure",36.852747022923
+"239",2047,"Extra large RZ 6 month closure",37.5184057442202
+"240",2048,"Extra large RZ 6 month closure",38.7674860533562
+"241",2049,"Extra large RZ 6 month closure",39.2475976846212
+"242",2050,"Extra large RZ 6 month closure",40.1611634205645
+"243",2051,"Extra large RZ 6 month closure",40.6721188072282
+"244",2052,"Extra large RZ 6 month closure",41.0687755362766
+"245",2053,"Extra large RZ 6 month closure",41.5265056815965
+"246",2054,"Extra large RZ 6 month closure",42.3578424395885
+"247",2055,"Extra large RZ 6 month closure",42.8059027005926
+"248",2056,"Extra large RZ 6 month closure",43.6060561982847
+"249",2057,"Extra large RZ 6 month closure",44.1422949853723
+"250",2058,"Extra large RZ 6 month closure",44.3502429106403
+"251",2059,"Extra large RZ 6 month closure",44.5555119626533
+"252",2060,"Extra large RZ 6 month closure",44.7067513733477
+"253",2025,"Extra large RZ 7 month closure",14.7002841588054
+"254",2026,"Extra large RZ 7 month closure",15.6127272846809
+"255",2027,"Extra large RZ 7 month closure",16.8544077947232
+"256",2028,"Extra large RZ 7 month closure",18.1393871570862
+"257",2029,"Extra large RZ 7 month closure",19.4112820377951
+"258",2030,"Extra large RZ 7 month closure",20.6848800576573
+"259",2031,"Extra large RZ 7 month closure",21.9710177077858
+"260",2032,"Extra large RZ 7 month closure",23.3419990655759
+"261",2033,"Extra large RZ 7 month closure",24.6920078820521
+"262",2034,"Extra large RZ 7 month closure",25.8097941560083
+"263",2035,"Extra large RZ 7 month closure",26.8641376175829
+"264",2036,"Extra large RZ 7 month closure",27.99393361587
+"265",2037,"Extra large RZ 7 month closure",29.3950025274543
+"266",2038,"Extra large RZ 7 month closure",30.7360559749792
+"267",2039,"Extra large RZ 7 month closure",32.1368226754275
+"268",2040,"Extra large RZ 7 month closure",33.229688658919
+"269",2041,"Extra large RZ 7 month closure",34.3895895581161
+"270",2042,"Extra large RZ 7 month closure",35.3664489826683
+"271",2043,"Extra large RZ 7 month closure",36.2912651035574
+"272",2044,"Extra large RZ 7 month closure",37.5179331118334
+"273",2045,"Extra large RZ 7 month closure",38.1976372737603
+"274",2046,"Extra large RZ 7 month closure",38.5741468073176
+"275",2047,"Extra large RZ 7 month closure",39.3134170429598
+"276",2048,"Extra large RZ 7 month closure",40.6225370645936
+"277",2049,"Extra large RZ 7 month closure",41.1653046004714
+"278",2050,"Extra large RZ 7 month closure",42.0878529666703
+"279",2051,"Extra large RZ 7 month closure",42.6451010239173
+"280",2052,"Extra large RZ 7 month closure",43.0941131974374
+"281",2053,"Extra large RZ 7 month closure",43.5719685918246
+"282",2054,"Extra large RZ 7 month closure",44.4369716624537
+"283",2055,"Extra large RZ 7 month closure",44.9003177009364
+"284",2056,"Extra large RZ 7 month closure",45.7507113529656
+"285",2057,"Extra large RZ 7 month closure",46.2821930269753
+"286",2058,"Extra large RZ 7 month closure",46.5724604897245
+"287",2059,"Extra large RZ 7 month closure",46.7696854799496
+"288",2060,"Extra large RZ 7 month closure",46.9703659524788
+"289",2025,"Extra large RZ 9 month closure",14.7002841588054
+"290",2026,"Extra large RZ 9 month closure",16.0399470372995
+"291",2027,"Extra large RZ 9 month closure",17.4837645924372
+"292",2028,"Extra large RZ 9 month closure",18.9359447085394
+"293",2029,"Extra large RZ 9 month closure",20.3592924624564
+"294",2030,"Extra large RZ 9 month closure",21.7786061080484
+"295",2031,"Extra large RZ 9 month closure",23.2077526030589
+"296",2032,"Extra large RZ 9 month closure",24.6956345943228
+"297",2033,"Extra large RZ 9 month closure",26.2141325218579
+"298",2034,"Extra large RZ 9 month closure",27.5825084727433
+"299",2035,"Extra large RZ 9 month closure",28.8077267539505
+"300",2036,"Extra large RZ 9 month closure",30.0021801126561
+"301",2037,"Extra large RZ 9 month closure",31.6029776527651
+"302",2038,"Extra large RZ 9 month closure",33.128815190436
+"303",2039,"Extra large RZ 9 month closure",34.6483936866705
+"304",2040,"Extra large RZ 9 month closure",35.9572754574947
+"305",2041,"Extra large RZ 9 month closure",37.2905544786976
+"306",2042,"Extra large RZ 9 month closure",38.391001063561
+"307",2043,"Extra large RZ 9 month closure",39.3649216227556
+"308",2044,"Extra large RZ 9 month closure",40.8931251401359
+"309",2045,"Extra large RZ 9 month closure",41.6703667025185
+"310",2046,"Extra large RZ 9 month closure",42.0487951413952
+"311",2047,"Extra large RZ 9 month closure",42.9071244407153
+"312",2048,"Extra large RZ 9 month closure",44.3316718474735
+"313",2049,"Extra large RZ 9 month closure",45.0438121700901
+"314",2050,"Extra large RZ 9 month closure",46.0158005196779
+"315",2051,"Extra large RZ 9 month closure",46.6520063104405
+"316",2052,"Extra large RZ 9 month closure",47.1849788958885
+"317",2053,"Extra large RZ 9 month closure",47.7873163609638
+"318",2054,"Extra large RZ 9 month closure",48.6803378478059
+"319",2055,"Extra large RZ 9 month closure",49.2432676726795
+"320",2056,"Extra large RZ 9 month closure",50.1205427721698
+"321",2057,"Extra large RZ 9 month closure",50.6306985697419
+"322",2058,"Extra large RZ 9 month closure",51.1364693873501
+"323",2059,"Extra large RZ 9 month closure",51.2839494943582
+"324",2060,"Extra large RZ 9 month closure",51.649146588978
+"325",2025,"Large RZ 4 month closure",14.7002841588054
+"326",2026,"Large RZ 4 month closure",14.903881658609
+"327",2027,"Large RZ 4 month closure",15.7959686272115
+"328",2028,"Large RZ 4 month closure",16.7891096730702
+"329",2029,"Large RZ 4 month closure",17.7781152022322
+"330",2030,"Large RZ 4 month closure",18.7706812082401
+"331",2031,"Large RZ 4 month closure",19.756677836474
+"332",2032,"Large RZ 4 month closure",20.8621653789044
+"333",2033,"Large RZ 4 month closure",21.8224559582464
+"334",2034,"Large RZ 4 month closure",22.6040437042102
+"335",2035,"Large RZ 4 month closure",23.3950456660188
+"336",2036,"Large RZ 4 month closure",24.3006733052938
+"337",2037,"Large RZ 4 month closure",25.2815730154726
+"338",2038,"Large RZ 4 month closure",26.2617511500926
+"339",2039,"Large RZ 4 month closure",27.4027684316489
+"340",2040,"Large RZ 4 month closure",28.0918936631655
+"341",2041,"Large RZ 4 month closure",28.8783434611772
+"342",2042,"Large RZ 4 month closure",29.5679129887986
+"343",2043,"Large RZ 4 month closure",30.2854530515946
+"344",2044,"Large RZ 4 month closure",30.9738045396976
+"345",2045,"Large RZ 4 month closure",31.4562231925272
+"346",2046,"Large RZ 4 month closure",31.6810364696634
+"347",2047,"Large RZ 4 month closure",32.1288067585029
+"348",2048,"Large RZ 4 month closure",33.1504389785497
+"349",2049,"Large RZ 4 month closure",33.6311593899896
+"350",2050,"Large RZ 4 month closure",34.2664291078956
+"351",2051,"Large RZ 4 month closure",34.4861054304926
+"352",2052,"Large RZ 4 month closure",34.7284013290378
+"353",2053,"Large RZ 4 month closure",35.3014374794268
+"354",2054,"Large RZ 4 month closure",35.7654070477366
+"355",2055,"Large RZ 4 month closure",36.1498399032212
+"356",2056,"Large RZ 4 month closure",36.8723608419096
+"357",2057,"Large RZ 4 month closure",37.2718677569339
+"358",2058,"Large RZ 4 month closure",37.1803617525634
+"359",2059,"Large RZ 4 month closure",37.2656370575742
+"360",2060,"Large RZ 4 month closure",37.4385780164248
+"361",2025,"Large RZ 8 month closure",14.7002841588054
+"362",2026,"Large RZ 8 month closure",15.7948743887556
+"363",2027,"Large RZ 8 month closure",17.0530671234442
+"364",2028,"Large RZ 8 month closure",18.3239154323969
+"365",2029,"Large RZ 8 month closure",19.5644067126906
+"366",2030,"Large RZ 8 month closure",20.7978050943797
+"367",2031,"Large RZ 8 month closure",22.0376899914042
+"368",2032,"Large RZ 8 month closure",23.3512247836524
+"369",2033,"Large RZ 8 month closure",24.6695072190369
+"370",2034,"Large RZ 8 month closure",25.7219826383458
+"371",2035,"Large RZ 8 month closure",26.7627026721102
+"372",2036,"Large RZ 8 month closure",27.8157049729745
+"373",2037,"Large RZ 8 month closure",29.1645208740702
+"374",2038,"Large RZ 8 month closure",30.4326635981738
+"375",2039,"Large RZ 8 month closure",31.7287235068287
+"376",2040,"Large RZ 8 month closure",32.6754792951798
+"377",2041,"Large RZ 8 month closure",33.8682981360232
+"378",2042,"Large RZ 8 month closure",34.8496501818827
+"379",2043,"Large RZ 8 month closure",35.6464145437898
+"380",2044,"Large RZ 8 month closure",36.8047085000922
+"381",2045,"Large RZ 8 month closure",37.2691736928744
+"382",2046,"Large RZ 8 month closure",37.6480775373194
+"383",2047,"Large RZ 8 month closure",38.2379592733854
+"384",2048,"Large RZ 8 month closure",39.4499731338512
+"385",2049,"Large RZ 8 month closure",39.8967545026686
+"386",2050,"Large RZ 8 month closure",40.8177623969919
+"387",2051,"Large RZ 8 month closure",41.2961210497046
+"388",2052,"Large RZ 8 month closure",41.6698324873826
+"389",2053,"Large RZ 8 month closure",42.0904414374072
+"390",2054,"Large RZ 8 month closure",42.8526069041415
+"391",2055,"Large RZ 8 month closure",43.2674674422851
+"392",2056,"Large RZ 8 month closure",44.0885519725528
+"393",2057,"Large RZ 8 month closure",44.5119688050673
+"394",2058,"Large RZ 8 month closure",44.6362397712444
+"395",2059,"Large RZ 8 month closure",44.6777993450535
+"396",2060,"Large RZ 8 month closure",44.9343680609141
+"397",2025,"Large RZ no temporal closure",14.7002841588054
+"398",2026,"Large RZ no temporal closure",14.893846451011
+"399",2027,"Large RZ no temporal closure",15.6291523507185
+"400",2028,"Large RZ no temporal closure",16.5475100022331
+"401",2029,"Large RZ no temporal closure",17.4756176770887
+"402",2030,"Large RZ no temporal closure",18.4109642557932
+"403",2031,"Large RZ no temporal closure",19.3398977610062
+"404",2032,"Large RZ no temporal closure",20.3896282716858
+"405",2033,"Large RZ no temporal closure",21.2869117879249
+"406",2034,"Large RZ no temporal closure",21.9965358836114
+"407",2035,"Large RZ no temporal closure",22.7536623092916
+"408",2036,"Large RZ no temporal closure",23.6209414271267
+"409",2037,"Large RZ no temporal closure",24.5189178904258
+"410",2038,"Large RZ no temporal closure",25.4234628816195
+"411",2039,"Large RZ no temporal closure",26.500119667687
+"412",2040,"Large RZ no temporal closure",27.1784574312006
+"413",2041,"Large RZ no temporal closure",27.8597509624233
+"414",2042,"Large RZ no temporal closure",28.5250072184784
+"415",2043,"Large RZ no temporal closure",29.2017660408804
+"416",2044,"Large RZ no temporal closure",29.8027461552445
+"417",2045,"Large RZ no temporal closure",30.2735274128184
+"418",2046,"Large RZ no temporal closure",30.451264110006
+"419",2047,"Large RZ no temporal closure",30.9573222564142
+"420",2048,"Large RZ no temporal closure",31.8786011169563
+"421",2049,"Large RZ no temporal closure",32.4184734548861
+"422",2050,"Large RZ no temporal closure",32.9673875520558
+"423",2051,"Large RZ no temporal closure",33.1026260300436
+"424",2052,"Large RZ no temporal closure",33.3580329171106
+"425",2053,"Large RZ no temporal closure",33.9514165965354
+"426",2054,"Large RZ no temporal closure",34.3768264544676
+"427",2055,"Large RZ no temporal closure",34.7527164618617
+"428",2056,"Large RZ no temporal closure",35.466854831263
+"429",2057,"Large RZ no temporal closure",35.8494820526059
+"430",2058,"Large RZ no temporal closure",35.7317703552086
+"431",2059,"Large RZ no temporal closure",35.8042690629
+"432",2060,"Large RZ no temporal closure",36.0178898911677
+"433",2025,"Large RZ 10 month closure",14.7002841588054
+"434",2026,"Large RZ 10 month closure",16.3814433813352
+"435",2027,"Large RZ 10 month closure",18.0562546119826
+"436",2028,"Large RZ 10 month closure",19.7062324912854
+"437",2029,"Large RZ 10 month closure",21.3040879370118
+"438",2030,"Large RZ 10 month closure",22.8822019117266
+"439",2031,"Large RZ 10 month closure",24.455445478922
+"440",2032,"Large RZ 10 month closure",26.067268177122
+"441",2033,"Large RZ 10 month closure",27.7266206037776
+"442",2034,"Large RZ 10 month closure",29.3291195233348
+"443",2035,"Large RZ 10 month closure",30.6711452759129
+"444",2036,"Large RZ 10 month closure",32.0001981383695
+"445",2037,"Large RZ 10 month closure",33.712845774783
+"446",2038,"Large RZ 10 month closure",35.4655383899603
+"447",2039,"Large RZ 10 month closure",37.0405705887177
+"448",2040,"Large RZ 10 month closure",38.6521857632262
+"449",2041,"Large RZ 10 month closure",40.0402229781139
+"450",2042,"Large RZ 10 month closure",41.2252994484213
+"451",2043,"Large RZ 10 month closure",42.3497000405091
+"452",2044,"Large RZ 10 month closure",43.9081192534056
+"453",2045,"Large RZ 10 month closure",44.7944522767961
+"454",2046,"Large RZ 10 month closure",45.2486649507154
+"455",2047,"Large RZ 10 month closure",46.0255342355317
+"456",2048,"Large RZ 10 month closure",47.4829628005727
+"457",2049,"Large RZ 10 month closure",48.2711311257584
+"458",2050,"Large RZ 10 month closure",49.2696929101313
+"459",2051,"Large RZ 10 month closure",50.055949782562
+"460",2052,"Large RZ 10 month closure",50.4877620847627
+"461",2053,"Large RZ 10 month closure",51.2907822654104
+"462",2054,"Large RZ 10 month closure",52.0622044579997
+"463",2055,"Large RZ 10 month closure",52.7463806018688
+"464",2056,"Large RZ 10 month closure",53.5032403111988
+"465",2057,"Large RZ 10 month closure",54.0495683499127
+"466",2058,"Large RZ 10 month closure",54.6116000902696
+"467",2059,"Large RZ 10 month closure",54.5993338129649
+"468",2060,"Large RZ 10 month closure",55.0997027731851
+"469",2025,"Large RZ 5 month closure",14.7002841588054
+"470",2026,"Large RZ 5 month closure",15.116361328051
+"471",2027,"Large RZ 5 month closure",16.0917409476868
+"472",2028,"Large RZ 5 month closure",17.1464728804161
+"473",2029,"Large RZ 5 month closure",18.1924913646926
+"474",2030,"Large RZ 5 month closure",19.2401115732967
+"475",2031,"Large RZ 5 month closure",20.2770367289401
+"476",2032,"Large RZ 5 month closure",21.4425990602828
+"477",2033,"Large RZ 5 month closure",22.4758134371816
+"478",2034,"Large RZ 5 month closure",23.3221959600716
+"479",2035,"Large RZ 5 month closure",24.1431326737197
+"480",2036,"Large RZ 5 month closure",25.0942424891698
+"481",2037,"Large RZ 5 month closure",26.1572144470148
+"482",2038,"Large RZ 5 month closure",27.2235932351307
+"483",2039,"Large RZ 5 month closure",28.3703893630668
+"484",2040,"Large RZ 5 month closure",29.1052999349449
+"485",2041,"Large RZ 5 month closure",29.9947349973804
+"486",2042,"Large RZ 5 month closure",30.7428403686499
+"487",2043,"Large RZ 5 month closure",31.4743719080083
+"488",2044,"Large RZ 5 month closure",32.2681139660663
+"489",2045,"Large RZ 5 month closure",32.7319221887938
+"490",2046,"Large RZ 5 month closure",32.9959442114085
+"491",2047,"Large RZ 5 month closure",33.4509600141968
+"492",2048,"Large RZ 5 month closure",34.548048080295
+"493",2049,"Large RZ 5 month closure",34.9719343409051
+"494",2050,"Large RZ 5 month closure",35.7041251539323
+"495",2051,"Large RZ 5 month closure",35.9844880095918
+"496",2052,"Large RZ 5 month closure",36.236737769807
+"497",2053,"Large RZ 5 month closure",36.7707046024247
+"498",2054,"Large RZ 5 month closure",37.291310451676
+"499",2055,"Large RZ 5 month closure",37.6573460283561
+"500",2056,"Large RZ 5 month closure",38.4464890256216
+"501",2057,"Large RZ 5 month closure",38.854427105418
+"502",2058,"Large RZ 5 month closure",38.7963951454435
+"503",2059,"Large RZ 5 month closure",38.8579967126545
+"504",2060,"Large RZ 5 month closure",39.0161689920771
+"505",2025,"Large RZ 6 month closure",14.7002841588054
+"506",2026,"Large RZ 6 month closure",15.2689983514137
+"507",2027,"Large RZ 6 month closure",16.2892262431928
+"508",2028,"Large RZ 6 month closure",17.3794492707947
+"509",2029,"Large RZ 6 month closure",18.4592958383166
+"510",2030,"Large RZ 6 month closure",19.5393378380808
+"511",2031,"Large RZ 6 month closure",20.6090960346412
+"512",2032,"Large RZ 6 month closure",21.8091118931826
+"513",2033,"Large RZ 6 month closure",22.8986764299362
+"514",2034,"Large RZ 6 month closure",23.7722463071575
+"515",2035,"Large RZ 6 month closure",24.6178927907567
+"516",2036,"Large RZ 6 month closure",25.5976140290302
+"517",2037,"Large RZ 6 month closure",26.7109964659916
+"518",2038,"Large RZ 6 month closure",27.8336350537066
+"519",2039,"Large RZ 6 month closure",28.9853639191493
+"520",2040,"Large RZ 6 month closure",29.7454818237524
+"521",2041,"Large RZ 6 month closure",30.6801657635355
+"522",2042,"Large RZ 6 month closure",31.5025633912518
+"523",2043,"Large RZ 6 month closure",32.2523100035723
+"524",2044,"Large RZ 6 month closure",33.1074745913523
+"525",2045,"Large RZ 6 month closure",33.5674526723203
+"526",2046,"Large RZ 6 month closure",33.844462191215
+"527",2047,"Large RZ 6 month closure",34.312334928722
+"528",2048,"Large RZ 6 month closure",35.4528586486478
+"529",2049,"Large RZ 6 month closure",35.873558572504
+"530",2050,"Large RZ 6 month closure",36.6462672731168
+"531",2051,"Large RZ 6 month closure",36.9599913001356
+"532",2052,"Large RZ 6 month closure",37.2323621331502
+"533",2053,"Large RZ 6 month closure",37.7332018831244
+"534",2054,"Large RZ 6 month closure",38.302955749724
+"535",2055,"Large RZ 6 month closure",38.6806956892944
+"536",2056,"Large RZ 6 month closure",39.4964361692989
+"537",2057,"Large RZ 6 month closure",39.8996037956438
+"538",2058,"Large RZ 6 month closure",39.8653983744714
+"539",2059,"Large RZ 6 month closure",39.922739834626
+"540",2060,"Large RZ 6 month closure",40.1034116689293
+"541",2025,"Large RZ 7 month closure",14.7002841588054
+"542",2026,"Large RZ 7 month closure",15.5540286619319
+"543",2027,"Large RZ 7 month closure",16.6941261921491
+"544",2028,"Large RZ 7 month closure",17.8695127437284
+"545",2029,"Large RZ 7 month closure",19.0268031912904
+"546",2030,"Large RZ 7 month closure",20.1811121702384
+"547",2031,"Large RZ 7 month closure",21.344378398447
+"548",2032,"Large RZ 7 month closure",22.5995784997015
+"549",2033,"Large RZ 7 month closure",23.8192051090446
+"550",2034,"Large RZ 7 month closure",24.75631339858
+"551",2035,"Large RZ 7 month closure",25.7072344108778
+"552",2036,"Large RZ 7 month closure",26.7090350985978
+"553",2037,"Large RZ 7 month closure",27.9321231069889
+"554",2038,"Large RZ 7 month closure",29.1496430046236
+"555",2039,"Large RZ 7 month closure",30.3525103924578
+"556",2040,"Large RZ 7 month closure",31.1960875464039
+"557",2041,"Large RZ 7 month closure",32.3077376631999
+"558",2042,"Large RZ 7 month closure",33.1967195177862
+"559",2043,"Large RZ 7 month closure",33.9752272103895
+"560",2044,"Large RZ 7 month closure",34.9843581661692
+"561",2045,"Large RZ 7 month closure",35.4097705433878
+"562",2046,"Large RZ 7 month closure",35.7595380331846
+"563",2047,"Large RZ 7 month closure",36.2824031046279
+"564",2048,"Large RZ 7 month closure",37.4675188175561
+"565",2049,"Large RZ 7 month closure",37.8962054586629
+"566",2050,"Large RZ 7 month closure",38.7500154865921
+"567",2051,"Large RZ 7 month closure",39.1611007718293
+"568",2052,"Large RZ 7 month closure",39.4576357025068
+"569",2053,"Large RZ 7 month closure",39.9030362068578
+"570",2054,"Large RZ 7 month closure",40.5678049467806
+"571",2055,"Large RZ 7 month closure",40.9788743001098
+"572",2056,"Large RZ 7 month closure",41.8037043597324
+"573",2057,"Large RZ 7 month closure",42.2161152533403
+"574",2058,"Large RZ 7 month closure",42.2553543623472
+"575",2059,"Large RZ 7 month closure",42.2983993814513
+"576",2060,"Large RZ 7 month closure",42.4982370366462
+"577",2025,"Large RZ 9 month closure",14.7002841588054
+"578",2026,"Large RZ 9 month closure",16.0062373450888
+"579",2027,"Large RZ 9 month closure",17.3828642491139
+"580",2028,"Large RZ 9 month closure",18.7579768095795
+"581",2029,"Large RZ 9 month closure",20.0928321220699
+"582",2030,"Large RZ 9 month closure",21.4163132548238
+"583",2031,"Large RZ 9 month closure",22.7429399229792
+"584",2032,"Large RZ 9 month closure",24.1284996228068
+"585",2033,"Large RZ 9 month closure",25.5459888614479
+"586",2034,"Large RZ 9 month closure",26.7571709955589
+"587",2035,"Large RZ 9 month closure",27.8810968889097
+"588",2036,"Large RZ 9 month closure",28.9883566778303
+"589",2037,"Large RZ 9 month closure",30.4432626231325
+"590",2038,"Large RZ 9 month closure",31.8062144653641
+"591",2039,"Large RZ 9 month closure",33.2336106680934
+"592",2040,"Large RZ 9 month closure",34.3263945641048
+"593",2041,"Large RZ 9 month closure",35.5445150957681
+"594",2042,"Large RZ 9 month closure",36.6061813420803
+"595",2043,"Large RZ 9 month closure",37.4258335045109
+"596",2044,"Large RZ 9 month closure",38.7936956085467
+"597",2045,"Large RZ 9 month closure",39.3074005199225
+"598",2046,"Large RZ 9 month closure",39.6836962131781
+"599",2047,"Large RZ 9 month closure",40.3517249057716
+"600",2048,"Large RZ 9 month closure",41.6352299795863
+"601",2049,"Large RZ 9 month closure",42.1470167634388
+"602",2050,"Large RZ 9 month closure",43.095003118894
+"603",2051,"Large RZ 9 month closure",43.64381520693
+"604",2052,"Large RZ 9 month closure",44.1026338496957
+"605",2053,"Large RZ 9 month closure",44.55211801192
+"606",2054,"Large RZ 9 month closure",45.3827087952134
+"607",2055,"Large RZ 9 month closure",45.7762829843397
+"608",2056,"Large RZ 9 month closure",46.5997654824374
+"609",2057,"Large RZ 9 month closure",47.0540427513501
+"610",2058,"Large RZ 9 month closure",47.2977081443984
+"611",2059,"Large RZ 9 month closure",47.3388144782949
+"612",2060,"Large RZ 9 month closure",47.6739856873926
+"613",2025,"Medium RZ 4 month closure",14.7002841588054
+"614",2026,"Medium RZ 4 month closure",14.7628236498892
+"615",2027,"Medium RZ 4 month closure",15.5137581536293
+"616",2028,"Medium RZ 4 month closure",16.3780606885219
+"617",2029,"Medium RZ 4 month closure",17.2430653843116
+"618",2030,"Medium RZ 4 month closure",18.1138338069857
+"619",2031,"Medium RZ 4 month closure",18.9770707889952
+"620",2032,"Medium RZ 4 month closure",19.9663138822068
+"621",2033,"Medium RZ 4 month closure",20.8021187333535
+"622",2034,"Medium RZ 4 month closure",21.4412778064141
+"623",2035,"Medium RZ 4 month closure",22.1391901466083
+"624",2036,"Medium RZ 4 month closure",22.9229308179142
+"625",2037,"Medium RZ 4 month closure",23.7642180347767
+"626",2038,"Medium RZ 4 month closure",24.6029094164201
+"627",2039,"Medium RZ 4 month closure",25.5559575882493
+"628",2040,"Medium RZ 4 month closure",26.1586583114005
+"629",2041,"Medium RZ 4 month closure",26.7858222700889
+"630",2042,"Medium RZ 4 month closure",27.3792827475346
+"631",2043,"Medium RZ 4 month closure",27.97911546657
+"632",2044,"Medium RZ 4 month closure",28.4675992520826
+"633",2045,"Medium RZ 4 month closure",28.8628613718279
+"634",2046,"Medium RZ 4 month closure",28.9878745663016
+"635",2047,"Medium RZ 4 month closure",29.4812131045352
+"636",2048,"Medium RZ 4 month closure",30.2573611307083
+"637",2049,"Medium RZ 4 month closure",30.6842172605021
+"638",2050,"Medium RZ 4 month closure",31.1374757471707
+"639",2051,"Medium RZ 4 month closure",31.1580860698343
+"640",2052,"Medium RZ 4 month closure",31.3411665885788
+"641",2053,"Medium RZ 4 month closure",31.8791075180369
+"642",2054,"Medium RZ 4 month closure",32.2121617389735
+"643",2055,"Medium RZ 4 month closure",32.5123053253648
+"644",2056,"Medium RZ 4 month closure",33.1637335742908
+"645",2057,"Medium RZ 4 month closure",33.4162380512953
+"646",2058,"Medium RZ 4 month closure",33.2448408949725
+"647",2059,"Medium RZ 4 month closure",33.2523773480345
+"648",2060,"Medium RZ 4 month closure",33.4238020461938
+"649",2025,"Medium RZ 8 month closure",14.7002841588054
+"650",2026,"Medium RZ 8 month closure",15.7471661981929
+"651",2027,"Medium RZ 8 month closure",16.9438505649247
+"652",2028,"Medium RZ 8 month closure",18.1526595144406
+"653",2029,"Medium RZ 8 month closure",19.3278881023368
+"654",2030,"Medium RZ 8 month closure",20.4945041421479
+"655",2031,"Medium RZ 8 month closure",21.6646856553682
+"656",2032,"Medium RZ 8 month closure",22.9081993212515
+"657",2033,"Medium RZ 8 month closure",24.1622405939361
+"658",2034,"Medium RZ 8 month closure",25.1172949291371
+"659",2035,"Medium RZ 8 month closure",26.0932373032918
+"660",2036,"Medium RZ 8 month closure",27.0901207255659
+"661",2037,"Medium RZ 8 month closure",28.3433990109256
+"662",2038,"Medium RZ 8 month closure",29.5480753615017
+"663",2039,"Medium RZ 8 month closure",30.7643646121055
+"664",2040,"Medium RZ 8 month closure",31.615519646407
+"665",2041,"Medium RZ 8 month closure",32.7389708703561
+"666",2042,"Medium RZ 8 month closure",33.6178000785779
+"667",2043,"Medium RZ 8 month closure",34.3524038823627
+"668",2044,"Medium RZ 8 month closure",35.3576721803779
+"669",2045,"Medium RZ 8 month closure",35.7204656156319
+"670",2046,"Medium RZ 8 month closure",35.9922637778763
+"671",2047,"Medium RZ 8 month closure",36.4725144886217
+"672",2048,"Medium RZ 8 month closure",37.6551171931467
+"673",2049,"Medium RZ 8 month closure",38.093631153446
+"674",2050,"Medium RZ 8 month closure",38.8893267447415
+"675",2051,"Medium RZ 8 month closure",39.1619935439376
+"676",2052,"Medium RZ 8 month closure",39.5271433651719
+"677",2053,"Medium RZ 8 month closure",39.8247268970473
+"678",2054,"Medium RZ 8 month closure",40.519958530059
+"679",2055,"Medium RZ 8 month closure",40.9156884357839
+"680",2056,"Medium RZ 8 month closure",41.7155657657565
+"681",2057,"Medium RZ 8 month closure",42.0300421652083
+"682",2058,"Medium RZ 8 month closure",41.9281541360326
+"683",2059,"Medium RZ 8 month closure",41.9405619405425
+"684",2060,"Medium RZ 8 month closure",42.1875474775063
+"685",2025,"Medium RZ no temporal closure",14.7002841588054
+"686",2026,"Medium RZ no temporal closure",14.7469707012057
+"687",2027,"Medium RZ no temporal closure",15.3053895486696
+"688",2028,"Medium RZ no temporal closure",16.0738512133844
+"689",2029,"Medium RZ no temporal closure",16.8628434980437
+"690",2030,"Medium RZ no temporal closure",17.6632239952839
+"691",2031,"Medium RZ no temporal closure",18.457284916236
+"692",2032,"Medium RZ no temporal closure",19.3764850370886
+"693",2033,"Medium RZ no temporal closure",20.1320124607493
+"694",2034,"Medium RZ no temporal closure",20.7121261808004
+"695",2035,"Medium RZ no temporal closure",21.3025418910228
+"696",2036,"Medium RZ no temporal closure",22.0908471734986
+"697",2037,"Medium RZ no temporal closure",22.8462726345017
+"698",2038,"Medium RZ no temporal closure",23.5761636861598
+"699",2039,"Medium RZ no temporal closure",24.4725270877002
+"700",2040,"Medium RZ no temporal closure",25.0628293769271
+"701",2041,"Medium RZ no temporal closure",25.5543134857339
+"702",2042,"Medium RZ no temporal closure",26.0949539943981
+"703",2043,"Medium RZ no temporal closure",26.7057643762974
+"704",2044,"Medium RZ no temporal closure",27.098725563429
+"705",2045,"Medium RZ no temporal closure",27.4473965036532
+"706",2046,"Medium RZ no temporal closure",27.5727550230043
+"707",2047,"Medium RZ no temporal closure",28.1329510674042
+"708",2048,"Medium RZ no temporal closure",28.7613569048386
+"709",2049,"Medium RZ no temporal closure",29.2128886810912
+"710",2050,"Medium RZ no temporal closure",29.612445555084
+"711",2051,"Medium RZ no temporal closure",29.5894914820477
+"712",2052,"Medium RZ no temporal closure",29.7363860856991
+"713",2053,"Medium RZ no temporal closure",30.2488912695577
+"714",2054,"Medium RZ no temporal closure",30.5681091831263
+"715",2055,"Medium RZ no temporal closure",30.8731435448643
+"716",2056,"Medium RZ no temporal closure",31.4526826198577
+"717",2057,"Medium RZ no temporal closure",31.7102647694883
+"718",2058,"Medium RZ no temporal closure",31.5605185707447
+"719",2059,"Medium RZ no temporal closure",31.5832287317645
+"720",2060,"Medium RZ no temporal closure",31.7708855467234
+"721",2025,"Medium RZ 10 month closure",14.7002841588054
+"722",2026,"Medium RZ 10 month closure",16.3691145328899
+"723",2027,"Medium RZ 10 month closure",18.0285735938747
+"724",2028,"Medium RZ 10 month closure",19.6596994486272
+"725",2029,"Medium RZ 10 month closure",21.2350131838587
+"726",2030,"Medium RZ 10 month closure",22.7883662358024
+"727",2031,"Medium RZ 10 month closure",24.3356519013062
+"728",2032,"Medium RZ 10 month closure",25.9167533253527
+"729",2033,"Medium RZ 10 month closure",27.5508195692028
+"730",2034,"Medium RZ 10 month closure",29.1305732637212
+"731",2035,"Medium RZ 10 month closure",30.4413634424262
+"732",2036,"Medium RZ 10 month closure",31.7345933249574
+"733",2037,"Medium RZ 10 month closure",33.4244856622028
+"734",2038,"Medium RZ 10 month closure",35.1395747437899
+"735",2039,"Medium RZ 10 month closure",36.6911683801196
+"736",2040,"Medium RZ 10 month closure",38.2334086626485
+"737",2041,"Medium RZ 10 month closure",39.6131633514024
+"738",2042,"Medium RZ 10 month closure",40.7797499713867
+"739",2043,"Medium RZ 10 month closure",41.8409170748932
+"740",2044,"Medium RZ 10 month closure",43.391703145677
+"741",2045,"Medium RZ 10 month closure",44.1987732649701
+"742",2046,"Medium RZ 10 month closure",44.6723706932193
+"743",2047,"Medium RZ 10 month closure",45.3742414468595
+"744",2048,"Medium RZ 10 month closure",46.8030603138643
+"745",2049,"Medium RZ 10 month closure",47.522621260185
+"746",2050,"Medium RZ 10 month closure",48.5046053282389
+"747",2051,"Medium RZ 10 month closure",49.2357294064751
+"748",2052,"Medium RZ 10 month closure",49.6032601292041
+"749",2053,"Medium RZ 10 month closure",50.2950710714741
+"750",2054,"Medium RZ 10 month closure",51.1075295502347
+"751",2055,"Medium RZ 10 month closure",51.7122850728617
+"752",2056,"Medium RZ 10 month closure",52.4005953334267
+"753",2057,"Medium RZ 10 month closure",52.8795937721254
+"754",2058,"Medium RZ 10 month closure",53.4157847948842
+"755",2059,"Medium RZ 10 month closure",53.312068014659
+"756",2060,"Medium RZ 10 month closure",53.7969997636275
+"757",2025,"Medium RZ 5 month closure",14.7002841588054
+"758",2026,"Medium RZ 5 month closure",15.0048584631712
+"759",2027,"Medium RZ 5 month closure",15.8658117999858
+"760",2028,"Medium RZ 5 month closure",16.809747425678
+"761",2029,"Medium RZ 5 month closure",17.7475621978197
+"762",2030,"Medium RZ 5 month closure",18.6874090351332
+"763",2031,"Medium RZ 5 month closure",19.6143770208859
+"764",2032,"Medium RZ 5 month closure",20.6810929312163
+"765",2033,"Medium RZ 5 month closure",21.5940604564303
+"766",2034,"Medium RZ 5 month closure",22.3175061606308
+"767",2035,"Medium RZ 5 month closure",23.0546026937326
+"768",2036,"Medium RZ 5 month closure",23.8902687849482
+"769",2037,"Medium RZ 5 month closure",24.8278600266315
+"770",2038,"Medium RZ 5 month closure",25.7506001482953
+"771",2039,"Medium RZ 5 month closure",26.781290352983
+"772",2040,"Medium RZ 5 month closure",27.3957932472202
+"773",2041,"Medium RZ 5 month closure",28.1414312853661
+"774",2042,"Medium RZ 5 month closure",28.8072924146153
+"775",2043,"Medium RZ 5 month closure",29.450151044987
+"776",2044,"Medium RZ 5 month closure",30.0227768208302
+"777",2045,"Medium RZ 5 month closure",30.4198356057283
+"778",2046,"Medium RZ 5 month closure",30.5294318665764
+"779",2047,"Medium RZ 5 month closure",31.0106891724198
+"780",2048,"Medium RZ 5 month closure",31.8762615417882
+"781",2049,"Medium RZ 5 month closure",32.3479789187803
+"782",2050,"Medium RZ 5 month closure",32.8786244234638
+"783",2051,"Medium RZ 5 month closure",32.9176009391242
+"784",2052,"Medium RZ 5 month closure",33.1486252841006
+"785",2053,"Medium RZ 5 month closure",33.6532483967738
+"786",2054,"Medium RZ 5 month closure",34.0299013818616
+"787",2055,"Medium RZ 5 month closure",34.3899119811933
+"788",2056,"Medium RZ 5 month closure",35.0437534977714
+"789",2057,"Medium RZ 5 month closure",35.3019771489108
+"790",2058,"Medium RZ 5 month closure",35.124590586196
+"791",2059,"Medium RZ 5 month closure",35.145056572846
+"792",2060,"Medium RZ 5 month closure",35.3085553198084
+"793",2025,"Medium RZ 6 month closure",14.7002841588054
+"794",2026,"Medium RZ 6 month closure",15.1726141141687
+"795",2027,"Medium RZ 6 month closure",16.0915885775661
+"796",2028,"Medium RZ 6 month closure",17.07973778075
+"797",2029,"Medium RZ 6 month closure",18.0590061498357
+"798",2030,"Medium RZ 6 month closure",19.0386833923945
+"799",2031,"Medium RZ 6 month closure",20.0118856007657
+"800",2032,"Medium RZ 6 month closure",21.1129957441485
+"801",2033,"Medium RZ 6 month closure",22.0884048063784
+"802",2034,"Medium RZ 6 month closure",22.8548070019486
+"803",2035,"Medium RZ 6 month closure",23.6133549178949
+"804",2036,"Medium RZ 6 month closure",24.488752323264
+"805",2037,"Medium RZ 6 month closure",25.4786936672807
+"806",2038,"Medium RZ 6 month closure",26.4377509341041
+"807",2039,"Medium RZ 6 month closure",27.5330836413939
+"808",2040,"Medium RZ 6 month closure",28.1642239703251
+"809",2041,"Medium RZ 6 month closure",28.956456544934
+"810",2042,"Medium RZ 6 month closure",29.6962922658131
+"811",2043,"Medium RZ 6 month closure",30.3530161337324
+"812",2044,"Medium RZ 6 month closure",30.9975148692476
+"813",2045,"Medium RZ 6 month closure",31.3827103525786
+"814",2046,"Medium RZ 6 month closure",31.5219715260998
+"815",2047,"Medium RZ 6 month closure",31.9907104591923
+"816",2048,"Medium RZ 6 month closure",32.9260958995638
+"817",2049,"Medium RZ 6 month closure",33.386839180591
+"818",2050,"Medium RZ 6 month closure",33.9890276203162
+"819",2051,"Medium RZ 6 month closure",34.0489488217312
+"820",2052,"Medium RZ 6 month closure",34.3094490225796
+"821",2053,"Medium RZ 6 month closure",34.7699182216837
+"822",2054,"Medium RZ 6 month closure",35.2066644572977
+"823",2055,"Medium RZ 6 month closure",35.6182226165196
+"824",2056,"Medium RZ 6 month closure",36.2653487850541
+"825",2057,"Medium RZ 6 month closure",36.5146312912004
+"826",2058,"Medium RZ 6 month closure",36.3575244573662
+"827",2059,"Medium RZ 6 month closure",36.3730233981893
+"828",2060,"Medium RZ 6 month closure",36.5835178507174
+"829",2025,"Medium RZ 7 month closure",14.7002841588054
+"830",2026,"Medium RZ 7 month closure",15.4851988107797
+"831",2027,"Medium RZ 7 month closure",16.5501435602302
+"832",2028,"Medium RZ 7 month closure",17.6474441463893
+"833",2029,"Medium RZ 7 month closure",18.7237919297374
+"834",2030,"Medium RZ 7 month closure",19.7963926471344
+"835",2031,"Medium RZ 7 month closure",20.8758758388878
+"836",2032,"Medium RZ 7 month closure",22.0505574361053
+"837",2033,"Medium RZ 7 month closure",23.1788164002938
+"838",2034,"Medium RZ 7 month closure",24.0296972634998
+"839",2035,"Medium RZ 7 month closure",24.8956051417569
+"840",2036,"Medium RZ 7 month closure",25.8195079559993
+"841",2037,"Medium RZ 7 month closure",26.95153760326
+"842",2038,"Medium RZ 7 month closure",28.0205945622614
+"843",2039,"Medium RZ 7 month closure",29.1671122665059
+"844",2040,"Medium RZ 7 month closure",29.898303345051
+"845",2041,"Medium RZ 7 month closure",30.8705506385668
+"846",2042,"Medium RZ 7 month closure",31.7095449933996
+"847",2043,"Medium RZ 7 month closure",32.3917823803956
+"848",2044,"Medium RZ 7 month closure",33.2468978697236
+"849",2045,"Medium RZ 7 month closure",33.5684590183941
+"850",2046,"Medium RZ 7 month closure",33.7984614575551
+"851",2047,"Medium RZ 7 month closure",34.2590689546341
+"852",2048,"Medium RZ 7 month closure",35.3331937357623
+"853",2049,"Medium RZ 7 month closure",35.780056035662
+"854",2050,"Medium RZ 7 month closure",36.4914996580583
+"855",2051,"Medium RZ 7 month closure",36.6221897125656
+"856",2052,"Medium RZ 7 month closure",36.9523314637326
+"857",2053,"Medium RZ 7 month closure",37.3337176003322
+"858",2054,"Medium RZ 7 month closure",37.8927101368279
+"859",2055,"Medium RZ 7 month closure",38.3426615920292
+"860",2056,"Medium RZ 7 month closure",39.0262393308059
+"861",2057,"Medium RZ 7 month closure",39.3018965154882
+"862",2058,"Medium RZ 7 month closure",39.1620646496485
+"863",2059,"Medium RZ 7 month closure",39.1724347240303
+"864",2060,"Medium RZ 7 month closure",39.3773573256828
+"865",2025,"Medium RZ 9 month closure",14.7002841588054
+"866",2026,"Medium RZ 9 month closure",15.9752398426434
+"867",2027,"Medium RZ 9 month closure",17.3048416449885
+"868",2028,"Medium RZ 9 month closure",18.6305233348681
+"869",2029,"Medium RZ 9 month closure",19.9124140381505
+"870",2030,"Medium RZ 9 month closure",21.1816472143114
+"871",2031,"Medium RZ 9 month closure",22.4498079551339
+"872",2032,"Medium RZ 9 month closure",23.7778254112863
+"873",2033,"Medium RZ 9 month closure",25.1448946241108
+"874",2034,"Medium RZ 9 month closure",26.2806322344796
+"875",2035,"Medium RZ 9 month closure",27.3552168684421
+"876",2036,"Medium RZ 9 month closure",28.4139461566649
+"877",2037,"Medium RZ 9 month closure",29.7925135782403
+"878",2038,"Medium RZ 9 month closure",31.0875820319003
+"879",2039,"Medium RZ 9 month closure",32.4634098788456
+"880",2040,"Medium RZ 9 month closure",33.4909579337101
+"881",2041,"Medium RZ 9 month closure",34.6452731086386
+"882",2042,"Medium RZ 9 month closure",35.6391765313786
+"883",2043,"Medium RZ 9 month closure",36.3973211656264
+"884",2044,"Medium RZ 9 month closure",37.6161192700015
+"885",2045,"Medium RZ 9 month closure",38.0537618286529
+"886",2046,"Medium RZ 9 month closure",38.3855393419892
+"887",2047,"Medium RZ 9 month closure",38.9275657066722
+"888",2048,"Medium RZ 9 month closure",40.1629940987386
+"889",2049,"Medium RZ 9 month closure",40.5951884165085
+"890",2050,"Medium RZ 9 month closure",41.5079948412624
+"891",2051,"Medium RZ 9 month closure",41.9772846849095
+"892",2052,"Medium RZ 9 month closure",42.3527130852701
+"893",2053,"Medium RZ 9 month closure",42.6422772279348
+"894",2054,"Medium RZ 9 month closure",43.432091441959
+"895",2055,"Medium RZ 9 month closure",43.8466444732569
+"896",2056,"Medium RZ 9 month closure",44.6689627364477
+"897",2057,"Medium RZ 9 month closure",45.0049876708411
+"898",2058,"Medium RZ 9 month closure",44.9886580180188
+"899",2059,"Medium RZ 9 month closure",45.026720610521
+"900",2060,"Medium RZ 9 month closure",45.3390755250636
+"901",2025,"No RZ 10 month closure",14.7002841588054
+"902",2026,"No RZ 10 month closure",16.3410216164167
+"903",2027,"No RZ 10 month closure",17.9551619039167
+"904",2028,"No RZ 10 month closure",19.5267200357365
+"905",2029,"No RZ 10 month closure",21.0308562734793
+"906",2030,"No RZ 10 month closure",22.5049330340026
+"907",2031,"No RZ 10 month closure",23.966009554022
+"908",2032,"No RZ 10 month closure",25.451142890675
+"909",2033,"No RZ 10 month closure",26.9960024577578
+"910",2034,"No RZ 10 month closure",28.479457565259
+"911",2035,"No RZ 10 month closure",29.6823241609196
+"912",2036,"No RZ 10 month closure",30.8647170067132
+"913",2037,"No RZ 10 month closure",32.4597223495277
+"914",2038,"No RZ 10 month closure",34.0248171661092
+"915",2039,"No RZ 10 month closure",35.4956674376974
+"916",2040,"No RZ 10 month closure",36.8970651927434
+"917",2041,"No RZ 10 month closure",38.1090320582004
+"918",2042,"No RZ 10 month closure",39.204127908288
+"919",2043,"No RZ 10 month closure",40.1120497517038
+"920",2044,"No RZ 10 month closure",41.514284523065
+"921",2045,"No RZ 10 month closure",42.1778077361554
+"922",2046,"No RZ 10 month closure",42.5900563902104
+"923",2047,"No RZ 10 month closure",43.0366392542975
+"924",2048,"No RZ 10 month closure",44.3994712501539
+"925",2049,"No RZ 10 month closure",44.983044995096
+"926",2050,"No RZ 10 month closure",45.8321603639304
+"927",2051,"No RZ 10 month closure",46.5117188181233
+"928",2052,"No RZ 10 month closure",46.758935908485
+"929",2053,"No RZ 10 month closure",47.2248795885807
+"930",2054,"No RZ 10 month closure",48.0055474757627
+"931",2055,"No RZ 10 month closure",48.3713761189119
+"932",2056,"No RZ 10 month closure",49.0407027765175
+"933",2057,"No RZ 10 month closure",49.4160697691854
+"934",2058,"No RZ 10 month closure",49.5724301043035
+"935",2059,"No RZ 10 month closure",49.429014035717
+"936",2060,"No RZ 10 month closure",49.8329089178553
+"937",2025,"No RZ 4 month closure",14.7002841588054
+"938",2026,"No RZ 4 month closure",14.5244826027559
+"939",2027,"No RZ 4 month closure",15.0496134771074
+"940",2028,"No RZ 4 month closure",15.6884004915215
+"941",2029,"No RZ 4 month closure",16.3304415627168
+"942",2030,"No RZ 4 month closure",16.9780496645785
+"943",2031,"No RZ 4 month closure",17.6270106567145
+"944",2032,"No RZ 4 month closure",18.3934510047027
+"945",2033,"No RZ 4 month closure",18.960390540913
+"946",2034,"No RZ 4 month closure",19.422387259674
+"947",2035,"No RZ 4 month closure",19.838103825274
+"948",2036,"No RZ 4 month closure",20.48256825406
+"949",2037,"No RZ 4 month closure",20.983462049281
+"950",2038,"No RZ 4 month closure",21.6155989578566
+"951",2039,"No RZ 4 month closure",22.2371891789588
+"952",2040,"No RZ 4 month closure",22.7412827425975
+"953",2041,"No RZ 4 month closure",23.0194267664627
+"954",2042,"No RZ 4 month closure",23.4243783354739
+"955",2043,"No RZ 4 month closure",23.8723373549235
+"956",2044,"No RZ 4 month closure",24.0571520133531
+"957",2045,"No RZ 4 month closure",24.3176862624329
+"958",2046,"No RZ 4 month closure",24.290057935332
+"959",2047,"No RZ 4 month closure",24.8108276090842
+"960",2048,"No RZ 4 month closure",25.1182517879236
+"961",2049,"No RZ 4 month closure",25.4147362590923
+"962",2050,"No RZ 4 month closure",25.5732131034601
+"963",2051,"No RZ 4 month closure",25.4758421094604
+"964",2052,"No RZ 4 month closure",25.5536684580902
+"965",2053,"No RZ 4 month closure",25.9608745972559
+"966",2054,"No RZ 4 month closure",25.9832041650762
+"967",2055,"No RZ 4 month closure",26.2037095634908
+"968",2056,"No RZ 4 month closure",26.494267676123
+"969",2057,"No RZ 4 month closure",26.5988841257431
+"970",2058,"No RZ 4 month closure",26.4807486705748
+"971",2059,"No RZ 4 month closure",26.4542564718664
+"972",2060,"No RZ 4 month closure",26.3952405943865
+"973",2025,"No RZ 5 month closure",14.7002841588054
+"974",2026,"No RZ 5 month closure",14.7971688818655
+"975",2027,"No RZ 5 month closure",15.4545003255061
+"976",2028,"No RZ 5 month closure",16.1887965615674
+"977",2029,"No RZ 5 month closure",16.9142091560554
+"978",2030,"No RZ 5 month closure",17.6401203788941
+"979",2031,"No RZ 5 month closure",18.3580383782615
+"980",2032,"No RZ 5 month closure",19.2120803355319
+"981",2033,"No RZ 5 month closure",19.8903371705786
+"982",2034,"No RZ 5 month closure",20.3877956656766
+"983",2035,"No RZ 5 month closure",20.9060269037075
+"984",2036,"No RZ 5 month closure",21.6065349422827
+"985",2037,"No RZ 5 month closure",22.2118985499528
+"986",2038,"No RZ 5 month closure",22.9028422531475
+"987",2039,"No RZ 5 month closure",23.6220361799055
+"988",2040,"No RZ 5 month closure",24.1797289570526
+"989",2041,"No RZ 5 month closure",24.5396117976632
+"990",2042,"No RZ 5 month closure",25.0020091667743
+"991",2043,"No RZ 5 month closure",25.5810920678005
+"992",2044,"No RZ 5 month closure",25.7964293961512
+"993",2045,"No RZ 5 month closure",26.0214533222477
+"994",2046,"No RZ 5 month closure",26.0203563552783
+"995",2047,"No RZ 5 month closure",26.5830913104375
+"996",2048,"No RZ 5 month closure",26.9367821671583
+"997",2049,"No RZ 5 month closure",27.2953629457424
+"998",2050,"No RZ 5 month closure",27.579400121531
+"999",2051,"No RZ 5 month closure",27.4190933225395
+"1000",2052,"No RZ 5 month closure",27.559325956521
+"1001",2053,"No RZ 5 month closure",27.9226323211107
+"1002",2054,"No RZ 5 month closure",28.0398597383973
+"1003",2055,"No RZ 5 month closure",28.2591455667673
+"1004",2056,"No RZ 5 month closure",28.5972261031914
+"1005",2057,"No RZ 5 month closure",28.7000832293377
+"1006",2058,"No RZ 5 month closure",28.5786816492301
+"1007",2059,"No RZ 5 month closure",28.539762167994
+"1008",2060,"No RZ 5 month closure",28.5102312555893
+"1009",2025,"No RZ 6 month closure",14.7002841588054
+"1010",2026,"No RZ 6 month closure",14.9915298723528
+"1011",2027,"No RZ 6 month closure",15.7191781928264
+"1012",2028,"No RZ 6 month closure",16.5078169655067
+"1013",2029,"No RZ 6 month closure",17.2826417122214
+"1014",2030,"No RZ 6 month closure",18.0547709044412
+"1015",2031,"No RZ 6 month closure",18.8160329802693
+"1016",2032,"No RZ 6 month closure",19.7199568861235
+"1017",2033,"No RZ 6 month closure",20.4542559072489
+"1018",2034,"No RZ 6 month closure",20.9949894480087
+"1019",2035,"No RZ 6 month closure",21.5944757569795
+"1020",2036,"No RZ 6 month closure",22.297647054298
+"1021",2037,"No RZ 6 month closure",22.9832113384478
+"1022",2038,"No RZ 6 month closure",23.7192850642187
+"1023",2039,"No RZ 6 month closure",24.4966760596496
+"1024",2040,"No RZ 6 month closure",25.050242797376
+"1025",2041,"No RZ 6 month closure",25.4940387588824
+"1026",2042,"No RZ 6 month closure",26.0103984539511
+"1027",2043,"No RZ 6 month closure",26.6341926394056
+"1028",2044,"No RZ 6 month closure",26.900271575881
+"1029",2045,"No RZ 6 month closure",27.0666516485899
+"1030",2046,"No RZ 6 month closure",27.1452263307914
+"1031",2047,"No RZ 6 month closure",27.6696158386115
+"1032",2048,"No RZ 6 month closure",28.0867559399732
+"1033",2049,"No RZ 6 month closure",28.4757849781966
+"1034",2050,"No RZ 6 month closure",28.7914856164243
+"1035",2051,"No RZ 6 month closure",28.688237724895
+"1036",2052,"No RZ 6 month closure",28.786373691203
+"1037",2053,"No RZ 6 month closure",29.1824095622364
+"1038",2054,"No RZ 6 month closure",29.3655682600548
+"1039",2055,"No RZ 6 month closure",29.5580571705373
+"1040",2056,"No RZ 6 month closure",29.9125342933902
+"1041",2057,"No RZ 6 month closure",30.021970749279
+"1042",2058,"No RZ 6 month closure",29.894570022035
+"1043",2059,"No RZ 6 month closure",29.9146633107948
+"1044",2060,"No RZ 6 month closure",29.8354911014672
+"1045",2025,"No RZ 7 month closure",14.7002841588054
+"1046",2026,"No RZ 7 month closure",15.3482810167206
+"1047",2027,"No RZ 7 month closure",16.2537644353943
+"1048",2028,"No RZ 7 month closure",17.1779598085956
+"1049",2029,"No RZ 7 month closure",18.0729736612123
+"1050",2030,"No RZ 7 month closure",18.9603179343614
+"1051",2031,"No RZ 7 month closure",19.8493451370416
+"1052",2032,"No RZ 7 month closure",20.8479626278783
+"1053",2033,"No RZ 7 month closure",21.7413577292853
+"1054",2034,"No RZ 7 month closure",22.3987112823298
+"1055",2035,"No RZ 7 month closure",23.0995524847259
+"1056",2036,"No RZ 7 month closure",23.8686607169138
+"1057",2037,"No RZ 7 month closure",24.7140735710368
+"1058",2038,"No RZ 7 month closure",25.557234783712
+"1059",2039,"No RZ 7 month closure",26.4992702415504
+"1060",2040,"No RZ 7 month closure",27.0769110916474
+"1061",2041,"No RZ 7 month closure",27.7247875447512
+"1062",2042,"No RZ 7 month closure",28.3759279704694
+"1063",2043,"No RZ 7 month closure",28.9705481125164
+"1064",2044,"No RZ 7 month closure",29.323514104758
+"1065",2045,"No RZ 7 month closure",29.583162529193
+"1066",2046,"No RZ 7 month closure",29.7631663622545
+"1067",2047,"No RZ 7 month closure",30.1989859146229
+"1068",2048,"No RZ 7 month closure",30.8080494905766
+"1069",2049,"No RZ 7 month closure",31.346478930849
+"1070",2050,"No RZ 7 month closure",31.6661768630225
+"1071",2051,"No RZ 7 month closure",31.6653746449336
+"1072",2052,"No RZ 7 month closure",31.6860215191797
+"1073",2053,"No RZ 7 month closure",32.1095458159785
+"1074",2054,"No RZ 7 month closure",32.4453735029063
+"1075",2055,"No RZ 7 month closure",32.5931777582825
+"1076",2056,"No RZ 7 month closure",32.9846190729431
+"1077",2057,"No RZ 7 month closure",33.163068734251
+"1078",2058,"No RZ 7 month closure",33.0471703685153
+"1079",2059,"No RZ 7 month closure",33.0527512644664
+"1080",2060,"No RZ 7 month closure",32.9972970862881
+"1081",2025,"No RZ 8 month closure",14.7002841588054
+"1082",2026,"No RZ 8 month closure",15.6640021925483
+"1083",2027,"No RZ 8 month closure",16.7312518238197
+"1084",2028,"No RZ 8 month closure",17.7923055071803
+"1085",2029,"No RZ 8 month closure",18.8084733151808
+"1086",2030,"No RZ 8 month closure",19.8110491976222
+"1087",2031,"No RZ 8 month closure",20.8105056260577
+"1088",2032,"No RZ 8 month closure",21.8878794188609
+"1089",2033,"No RZ 8 month closure",22.9760791567764
+"1090",2034,"No RZ 8 month closure",23.734057804398
+"1091",2035,"No RZ 8 month closure",24.5073431122575
+"1092",2036,"No RZ 8 month closure",25.3826643148583
+"1093",2037,"No RZ 8 month closure",26.3710741826776
+"1094",2038,"No RZ 8 month closure",27.3362844703312
+"1095",2039,"No RZ 8 month closure",28.3842411194838
+"1096",2040,"No RZ 8 month closure",29.1099607723141
+"1097",2041,"No RZ 8 month closure",29.893027792839
+"1098",2042,"No RZ 8 month closure",30.6761224196942
+"1099",2043,"No RZ 8 month closure",31.2407985817043
+"1100",2044,"No RZ 8 month closure",31.7521914315791
+"1101",2045,"No RZ 8 month closure",32.1235535815783
+"1102",2046,"No RZ 8 month closure",32.2368133338785
+"1103",2047,"No RZ 8 month closure",32.6748509052023
+"1104",2048,"No RZ 8 month closure",33.5153465221461
+"1105",2049,"No RZ 8 month closure",34.1032233639193
+"1106",2050,"No RZ 8 month closure",34.5131525956549
+"1107",2051,"No RZ 8 month closure",34.5513968631128
+"1108",2052,"No RZ 8 month closure",34.669397291073
+"1109",2053,"No RZ 8 month closure",35.0392285380317
+"1110",2054,"No RZ 8 month closure",35.5123894639847
+"1111",2055,"No RZ 8 month closure",35.6429277150477
+"1112",2056,"No RZ 8 month closure",36.1179895507979
+"1113",2057,"No RZ 8 month closure",36.2782689106155
+"1114",2058,"No RZ 8 month closure",36.2214965191066
+"1115",2059,"No RZ 8 month closure",36.2047436646213
+"1116",2060,"No RZ 8 month closure",36.2563027124714
+"1117",2025,"No RZ 9 month closure",14.7002841588054
+"1118",2026,"No RZ 9 month closure",15.9099141647579
+"1119",2027,"No RZ 9 month closure",17.144106926913
+"1120",2028,"No RZ 9 month closure",18.3535490742782
+"1121",2029,"No RZ 9 month closure",19.5040529630082
+"1122",2030,"No RZ 9 month closure",20.6339548255005
+"1123",2031,"No RZ 9 month closure",21.754088338874
+"1124",2032,"No RZ 9 month closure",22.9313269837771
+"1125",2033,"No RZ 9 month closure",24.1586159399861
+"1126",2034,"No RZ 9 month closure",25.0770878883198
+"1127",2035,"No RZ 9 month closure",26.0187150085361
+"1128",2036,"No RZ 9 month closure",26.9570166101545
+"1129",2037,"No RZ 9 month closure",28.0978109378296
+"1130",2038,"No RZ 9 month closure",29.2030570549538
+"1131",2039,"No RZ 9 month closure",30.4340927344011
+"1132",2040,"No RZ 9 month closure",31.3022595190955
+"1133",2041,"No RZ 9 month closure",32.254261814915
+"1134",2042,"No RZ 9 month closure",33.074354914351
+"1135",2043,"No RZ 9 month closure",33.6739115094127
+"1136",2044,"No RZ 9 month closure",34.5651487108415
+"1137",2045,"No RZ 9 month closure",34.8814709780326
+"1138",2046,"No RZ 9 month closure",34.9843733106673
+"1139",2047,"No RZ 9 month closure",35.4282756192626
+"1140",2048,"No RZ 9 month closure",36.4773645497478
+"1141",2049,"No RZ 9 month closure",37.0149105128434
+"1142",2050,"No RZ 9 month closure",37.6299205757128
+"1143",2051,"No RZ 9 month closure",37.7322431298513
+"1144",2052,"No RZ 9 month closure",37.9828287483509
+"1145",2053,"No RZ 9 month closure",38.1882444870172
+"1146",2054,"No RZ 9 month closure",38.8317817070402
+"1147",2055,"No RZ 9 month closure",39.0337643082623
+"1148",2056,"No RZ 9 month closure",39.6843662458394
+"1149",2057,"No RZ 9 month closure",39.7997141199807
+"1150",2058,"No RZ 9 month closure",39.7946258581991
+"1151",2059,"No RZ 9 month closure",39.6940762724935
+"1152",2060,"No RZ 9 month closure",39.8950292956639
+"1153",2025,"No NTZs 5 month closure",14.7002841588054
+"1154",2026,"No NTZs 5 month closure",14.8098131946759
+"1155",2027,"No NTZs 5 month closure",15.4649868466854
+"1156",2028,"No NTZs 5 month closure",16.2002145916143
+"1157",2029,"No NTZs 5 month closure",16.9272861896965
+"1158",2030,"No NTZs 5 month closure",17.6544156378505
+"1159",2031,"No NTZs 5 month closure",18.3731237558843
+"1160",2032,"No NTZs 5 month closure",19.2308945900321
+"1161",2033,"No NTZs 5 month closure",19.909731538343
+"1162",2034,"No NTZs 5 month closure",20.4103182022746
+"1163",2035,"No NTZs 5 month closure",20.9289801792585
+"1164",2036,"No NTZs 5 month closure",21.6308606969772
+"1165",2037,"No NTZs 5 month closure",22.23404486073
+"1166",2038,"No NTZs 5 month closure",22.9258865097869
+"1167",2039,"No NTZs 5 month closure",23.6453034981617
+"1168",2040,"No NTZs 5 month closure",24.2073074884988
+"1169",2041,"No NTZs 5 month closure",24.5647882642496
+"1170",2042,"No NTZs 5 month closure",25.0267615414493
+"1171",2043,"No NTZs 5 month closure",25.6072700925885
+"1172",2044,"No NTZs 5 month closure",25.8223274659253
+"1173",2045,"No NTZs 5 month closure",26.0493576205392
+"1174",2046,"No NTZs 5 month closure",26.0486422885208
+"1175",2047,"No NTZs 5 month closure",26.6123645746911
+"1176",2048,"No NTZs 5 month closure",26.9719114919625
+"1177",2049,"No NTZs 5 month closure",27.3247698015323
+"1178",2050,"No NTZs 5 month closure",27.6038728673969
+"1179",2051,"No NTZs 5 month closure",27.444584450547
+"1180",2052,"No NTZs 5 month closure",27.5803220831645
+"1181",2053,"No NTZs 5 month closure",27.9483391489888
+"1182",2054,"No NTZs 5 month closure",28.0611946150302
+"1183",2055,"No NTZs 5 month closure",28.2810246343471
+"1184",2056,"No NTZs 5 month closure",28.6184103159099
+"1185",2057,"No NTZs 5 month closure",28.7211887937092
+"1186",2058,"No NTZs 5 month closure",28.6014374504922
+"1187",2059,"No NTZs 5 month closure",28.5572076027894
+"1188",2060,"No NTZs 5 month closure",28.5300540995228
+"1189",2025,"No NTZs 7 month closure",14.7002841588054
+"1190",2026,"No NTZs 7 month closure",15.3707940299075
+"1191",2027,"No NTZs 7 month closure",16.2724475896248
+"1192",2028,"No NTZs 7 month closure",17.1948772563428
+"1193",2029,"No NTZs 7 month closure",18.090235323331
+"1194",2030,"No NTZs 7 month closure",18.9789562699534
+"1195",2031,"No NTZs 7 month closure",19.8697498708561
+"1196",2032,"No NTZs 7 month closure",20.8710946869153
+"1197",2033,"No NTZs 7 month closure",21.7649906709674
+"1198",2034,"No NTZs 7 month closure",22.4257499084488
+"1199",2035,"No NTZs 7 month closure",23.1279909513632
+"1200",2036,"No NTZs 7 month closure",23.9028557720885
+"1201",2037,"No NTZs 7 month closure",24.7456355647984
+"1202",2038,"No NTZs 7 month closure",25.5893894982028
+"1203",2039,"No NTZs 7 month closure",26.5350386372622
+"1204",2040,"No NTZs 7 month closure",27.1138209900652
+"1205",2041,"No NTZs 7 month closure",27.760787137589
+"1206",2042,"No NTZs 7 month closure",28.4108657504918
+"1207",2043,"No NTZs 7 month closure",29.0152013040915
+"1208",2044,"No NTZs 7 month closure",29.3648984445058
+"1209",2045,"No NTZs 7 month closure",29.6223449306105
+"1210",2046,"No NTZs 7 month closure",29.7991079040961
+"1211",2047,"No NTZs 7 month closure",30.2372191078708
+"1212",2048,"No NTZs 7 month closure",30.8506393781644
+"1213",2049,"No NTZs 7 month closure",31.3867794494281
+"1214",2050,"No NTZs 7 month closure",31.7047912290628
+"1215",2051,"No NTZs 7 month closure",31.7051107662445
+"1216",2052,"No NTZs 7 month closure",31.7194623716236
+"1217",2053,"No NTZs 7 month closure",32.1469162980038
+"1218",2054,"No NTZs 7 month closure",32.4736047618799
+"1219",2055,"No NTZs 7 month closure",32.6219541960928
+"1220",2056,"No NTZs 7 month closure",33.0142930607081
+"1221",2057,"No NTZs 7 month closure",33.1910163334894
+"1222",2058,"No NTZs 7 month closure",33.0777058177399
+"1223",2059,"No NTZs 7 month closure",33.0811845844455
+"1224",2060,"No NTZs 7 month closure",33.0208461348207
+"1225",2025,"No NTZs 9 month closure",14.7002841588054
+"1226",2026,"No NTZs 9 month closure",15.9137462547908
+"1227",2027,"No NTZs 9 month closure",17.1446122652008
+"1228",2028,"No NTZs 9 month closure",18.3518731318002
+"1229",2029,"No NTZs 9 month closure",19.4995426658696
+"1230",2030,"No NTZs 9 month closure",20.6269584662953
+"1231",2031,"No NTZs 9 month closure",21.7448809458237
+"1232",2032,"No NTZs 9 month closure",22.9189019725778
+"1233",2033,"No NTZs 9 month closure",24.1460926778505
+"1234",2034,"No NTZs 9 month closure",25.064160240482
+"1235",2035,"No NTZs 9 month closure",26.0044858738704
+"1236",2036,"No NTZs 9 month closure",26.9427208952189
+"1237",2037,"No NTZs 9 month closure",28.0790526601894
+"1238",2038,"No NTZs 9 month closure",29.1838302209402
+"1239",2039,"No NTZs 9 month closure",30.414899546474
+"1240",2040,"No NTZs 9 month closure",31.2839500722038
+"1241",2041,"No NTZs 9 month closure",32.229010819341
+"1242",2042,"No NTZs 9 month closure",33.0533969978992
+"1243",2043,"No NTZs 9 month closure",33.650140663525
+"1244",2044,"No NTZs 9 month closure",34.5252472661205
+"1245",2045,"No NTZs 9 month closure",34.8529108767825
+"1246",2046,"No NTZs 9 month closure",34.9489564550548
+"1247",2047,"No NTZs 9 month closure",35.3914453407892
+"1248",2048,"No NTZs 9 month closure",36.4511365781891
+"1249",2049,"No NTZs 9 month closure",36.9836203204652
+"1250",2050,"No NTZs 9 month closure",37.5999808825775
+"1251",2051,"No NTZs 9 month closure",37.6958840492018
+"1252",2052,"No NTZs 9 month closure",37.9377411293024
+"1253",2053,"No NTZs 9 month closure",38.1537674435967
+"1254",2054,"No NTZs 9 month closure",38.7981292989627
+"1255",2055,"No NTZs 9 month closure",38.9901714914071
+"1256",2056,"No NTZs 9 month closure",39.6332088402899
+"1257",2057,"No NTZs 9 month closure",39.7483539933146
+"1258",2058,"No NTZs 9 month closure",39.7464736618883
+"1259",2059,"No NTZs 9 month closure",39.6431853702486
+"1260",2060,"No NTZs 9 month closure",39.8452183551072
+"1261",2025,"Small RZ 4 month closure",14.7002841588054
+"1262",2026,"Small RZ 4 month closure",14.7791450980262
+"1263",2027,"Small RZ 4 month closure",15.505464602034
+"1264",2028,"Small RZ 4 month closure",16.3186506509374
+"1265",2029,"Small RZ 4 month closure",17.1226437306895
+"1266",2030,"Small RZ 4 month closure",17.9260875106999
+"1267",2031,"Small RZ 4 month closure",18.7218426728523
+"1268",2032,"Small RZ 4 month closure",19.635092470524
+"1269",2033,"Small RZ 4 month closure",20.3888894313668
+"1270",2034,"Small RZ 4 month closure",20.9480208238254
+"1271",2035,"Small RZ 4 month closure",21.5485636035979
+"1272",2036,"Small RZ 4 month closure",22.2793830905979
+"1273",2037,"Small RZ 4 month closure",23.0017042877961
+"1274",2038,"Small RZ 4 month closure",23.7587717013531
+"1275",2039,"Small RZ 4 month closure",24.5921931854247
+"1276",2040,"Small RZ 4 month closure",25.1429642909106
+"1277",2041,"Small RZ 4 month closure",25.6564572570721
+"1278",2042,"Small RZ 4 month closure",26.1601029199945
+"1279",2043,"Small RZ 4 month closure",26.7284254594092
+"1280",2044,"Small RZ 4 month closure",27.1187944120089
+"1281",2045,"Small RZ 4 month closure",27.3625730514536
+"1282",2046,"Small RZ 4 month closure",27.4789099400065
+"1283",2047,"Small RZ 4 month closure",27.9499678263044
+"1284",2048,"Small RZ 4 month closure",28.5121834468353
+"1285",2049,"Small RZ 4 month closure",28.9110782916802
+"1286",2050,"Small RZ 4 month closure",29.2583101786009
+"1287",2051,"Small RZ 4 month closure",29.2082327861282
+"1288",2052,"Small RZ 4 month closure",29.2767661837256
+"1289",2053,"Small RZ 4 month closure",29.7020862198524
+"1290",2054,"Small RZ 4 month closure",30.0042582710078
+"1291",2055,"Small RZ 4 month closure",30.253989722873
+"1292",2056,"Small RZ 4 month closure",30.6901772737651
+"1293",2057,"Small RZ 4 month closure",30.9008282693404
+"1294",2058,"Small RZ 4 month closure",30.7018167380604
+"1295",2059,"Small RZ 4 month closure",30.6929003888465
+"1296",2060,"Small RZ 4 month closure",30.8191176507146
+"1297",2025,"Small RZ 8 month closure",14.7002841588054
+"1298",2026,"Small RZ 8 month closure",15.7510193993519
+"1299",2027,"Small RZ 8 month closure",16.9347103086043
+"1300",2028,"Small RZ 8 month closure",18.1166298871468
+"1301",2029,"Small RZ 8 month closure",19.2568242139858
+"1302",2030,"Small RZ 8 month closure",20.3830039191359
+"1303",2031,"Small RZ 8 month closure",21.5087559617796
+"1304",2032,"Small RZ 8 month closure",22.7091408372544
+"1305",2033,"Small RZ 8 month closure",23.9168746148021
+"1306",2034,"Small RZ 8 month closure",24.8072343133519
+"1307",2035,"Small RZ 8 month closure",25.7199889840453
+"1308",2036,"Small RZ 8 month closure",26.6798657159047
+"1309",2037,"Small RZ 8 month closure",27.8462346935085
+"1310",2038,"Small RZ 8 month closure",28.965521064344
+"1311",2039,"Small RZ 8 month closure",30.1675066816275
+"1312",2040,"Small RZ 8 month closure",30.9399795511147
+"1313",2041,"Small RZ 8 month closure",31.9694235602807
+"1314",2042,"Small RZ 8 month closure",32.8137961515755
+"1315",2043,"Small RZ 8 month closure",33.4830826581402
+"1316",2044,"Small RZ 8 month closure",34.3840445394863
+"1317",2045,"Small RZ 8 month closure",34.6954775001267
+"1318",2046,"Small RZ 8 month closure",34.8804107799159
+"1319",2047,"Small RZ 8 month closure",35.3462089917826
+"1320",2048,"Small RZ 8 month closure",36.4210302796133
+"1321",2049,"Small RZ 8 month closure",36.8673606432055
+"1322",2050,"Small RZ 8 month closure",37.5720326897839
+"1323",2051,"Small RZ 8 month closure",37.7536927849811
+"1324",2052,"Small RZ 8 month closure",38.0525309895309
+"1325",2053,"Small RZ 8 month closure",38.2984291747298
+"1326",2054,"Small RZ 8 month closure",38.9335742303399
+"1327",2055,"Small RZ 8 month closure",39.3368168504667
+"1328",2056,"Small RZ 8 month closure",40.0178085097264
+"1329",2057,"Small RZ 8 month closure",40.2139014852002
+"1330",2058,"Small RZ 8 month closure",40.1050456057448
+"1331",2059,"Small RZ 8 month closure",40.0099509129739
+"1332",2060,"Small RZ 8 month closure",40.2715381885364
+"1333",2025,"Small RZ no temporal closure",14.7002841588054
+"1334",2026,"Small RZ no temporal closure",14.7688895287865
+"1335",2027,"Small RZ no temporal closure",15.2991607807539
+"1336",2028,"Small RZ no temporal closure",16.0096237243247
+"1337",2029,"Small RZ no temporal closure",16.72998201248
+"1338",2030,"Small RZ no temporal closure",17.4562083176502
+"1339",2031,"Small RZ no temporal closure",18.176111233798
+"1340",2032,"Small RZ no temporal closure",19.0133302991339
+"1341",2033,"Small RZ no temporal closure",19.6680315131696
+"1342",2034,"Small RZ no temporal closure",20.1814828638818
+"1343",2035,"Small RZ no temporal closure",20.6861484345827
+"1344",2036,"Small RZ no temporal closure",21.3995618340132
+"1345",2037,"Small RZ no temporal closure",22.0203818056602
+"1346",2038,"Small RZ no temporal closure",22.6684214997521
+"1347",2039,"Small RZ no temporal closure",23.4152022181635
+"1348",2040,"Small RZ no temporal closure",23.9733941485844
+"1349",2041,"Small RZ no temporal closure",24.3261424037269
+"1350",2042,"Small RZ no temporal closure",24.815149356441
+"1351",2043,"Small RZ no temporal closure",25.3829712302418
+"1352",2044,"Small RZ no temporal closure",25.6352435476064
+"1353",2045,"Small RZ no temporal closure",25.8734792625619
+"1354",2046,"Small RZ no temporal closure",25.9006525921223
+"1355",2047,"Small RZ no temporal closure",26.483497465262
+"1356",2048,"Small RZ no temporal closure",26.903560757711
+"1357",2049,"Small RZ no temporal closure",27.2787453912155
+"1358",2050,"Small RZ no temporal closure",27.5518964745393
+"1359",2051,"Small RZ no temporal closure",27.4571530601491
+"1360",2052,"Small RZ no temporal closure",27.5724402633365
+"1361",2053,"Small RZ no temporal closure",28.0072342400857
+"1362",2054,"Small RZ no temporal closure",28.2064755145526
+"1363",2055,"Small RZ no temporal closure",28.4846416047542
+"1364",2056,"Small RZ no temporal closure",28.8304447426479
+"1365",2057,"Small RZ no temporal closure",29.0197129443639
+"1366",2058,"Small RZ no temporal closure",28.8820166672981
+"1367",2059,"Small RZ no temporal closure",28.8653320849337
+"1368",2060,"Small RZ no temporal closure",28.9346477011162
+"1369",2025,"Small RZ 10 month closure",14.7002841588054
+"1370",2026,"Small RZ 10 month closure",16.374398224354
+"1371",2027,"Small RZ 10 month closure",18.0331756636254
+"1372",2028,"Small RZ 10 month closure",19.65526492297
+"1373",2029,"Small RZ 10 month closure",21.2163223278943
+"1374",2030,"Small RZ 10 month closure",22.7513322298734
+"1375",2031,"Small RZ 10 month closure",24.2769668974211
+"1376",2032,"Small RZ 10 month closure",25.834334955429
+"1377",2033,"Small RZ 10 month closure",27.4452733378353
+"1378",2034,"Small RZ 10 month closure",28.9982535317925
+"1379",2035,"Small RZ 10 month closure",30.2792383413641
+"1380",2036,"Small RZ 10 month closure",31.5415424191145
+"1381",2037,"Small RZ 10 month closure",33.2066312804497
+"1382",2038,"Small RZ 10 month closure",34.8811791929674
+"1383",2039,"Small RZ 10 month closure",36.4122671233094
+"1384",2040,"Small RZ 10 month closure",37.9058081050202
+"1385",2041,"Small RZ 10 month closure",39.255488026866
+"1386",2042,"Small RZ 10 month closure",40.4072451229731
+"1387",2043,"Small RZ 10 month closure",41.4068182888001
+"1388",2044,"Small RZ 10 month closure",42.9293062376451
+"1389",2045,"Small RZ 10 month closure",43.6928458366298
+"1390",2046,"Small RZ 10 month closure",44.1651536520253
+"1391",2047,"Small RZ 10 month closure",44.7992768739668
+"1392",2048,"Small RZ 10 month closure",46.2078606526564
+"1393",2049,"Small RZ 10 month closure",46.8588738277991
+"1394",2050,"Small RZ 10 month closure",47.8139441665314
+"1395",2051,"Small RZ 10 month closure",48.5245090333494
+"1396",2052,"Small RZ 10 month closure",48.8501534493872
+"1397",2053,"Small RZ 10 month closure",49.4405031396371
+"1398",2054,"Small RZ 10 month closure",50.27518814572
+"1399",2055,"Small RZ 10 month closure",50.8222683895334
+"1400",2056,"Small RZ 10 month closure",51.4329073706263
+"1401",2057,"Small RZ 10 month closure",51.9401671803682
+"1402",2058,"Small RZ 10 month closure",52.3426888412287
+"1403",2059,"Small RZ 10 month closure",52.2138479621143
+"1404",2060,"Small RZ 10 month closure",52.69727062628
+"1405",2025,"Small RZ 5 month closure",14.7002841588054
+"1406",2026,"Small RZ 5 month closure",15.0143556978115
+"1407",2027,"Small RZ 5 month closure",15.8558237211031
+"1408",2028,"Small RZ 5 month closure",16.7571217373614
+"1409",2029,"Small RZ 5 month closure",17.6408527862316
+"1410",2030,"Small RZ 5 month closure",18.5200991086846
+"1411",2031,"Small RZ 5 month closure",19.3855382859533
+"1412",2032,"Small RZ 5 month closure",20.3832919641942
+"1413",2033,"Small RZ 5 month closure",21.2219749871657
+"1414",2034,"Small RZ 5 month closure",21.8587593182526
+"1415",2035,"Small RZ 5 month closure",22.5460433086846
+"1416",2036,"Small RZ 5 month closure",23.307878353378
+"1417",2037,"Small RZ 5 month closure",24.1280427922635
+"1418",2038,"Small RZ 5 month closure",24.9892533837151
+"1419",2039,"Small RZ 5 month closure",25.8941836232174
+"1420",2040,"Small RZ 5 month closure",26.4753320327864
+"1421",2041,"Small RZ 5 month closure",27.1066637679401
+"1422",2042,"Small RZ 5 month closure",27.7045302883901
+"1423",2043,"Small RZ 5 month closure",28.2862953767889
+"1424",2044,"Small RZ 5 month closure",28.7400682322056
+"1425",2045,"Small RZ 5 month closure",29.020945226864
+"1426",2046,"Small RZ 5 month closure",29.1472591671408
+"1427",2047,"Small RZ 5 month closure",29.6104875528497
+"1428",2048,"Small RZ 5 month closure",30.3143189662182
+"1429",2049,"Small RZ 5 month closure",30.7560565429975
+"1430",2050,"Small RZ 5 month closure",31.1326465508759
+"1431",2051,"Small RZ 5 month closure",31.1239439361722
+"1432",2052,"Small RZ 5 month closure",31.2435162850209
+"1433",2053,"Small RZ 5 month closure",31.6764978960627
+"1434",2054,"Small RZ 5 month closure",32.0083041088309
+"1435",2055,"Small RZ 5 month closure",32.2571558486436
+"1436",2056,"Small RZ 5 month closure",32.7752146780453
+"1437",2057,"Small RZ 5 month closure",32.9655782605038
+"1438",2058,"Small RZ 5 month closure",32.7292357802541
+"1439",2059,"Small RZ 5 month closure",32.722635184537
+"1440",2060,"Small RZ 5 month closure",32.850234168775
+"1441",2025,"Small RZ 6 month closure",14.7002841588054
+"1442",2026,"Small RZ 6 month closure",15.1807971223446
+"1443",2027,"Small RZ 6 month closure",16.0821280617028
+"1444",2028,"Small RZ 6 month closure",17.0323926715248
+"1445",2029,"Small RZ 6 month closure",17.9618730515761
+"1446",2030,"Small RZ 6 month closure",18.8845661684839
+"1447",2031,"Small RZ 6 month closure",19.7928572968427
+"1448",2032,"Small RZ 6 month closure",20.8383051857231
+"1449",2033,"Small RZ 6 month closure",21.7306172426051
+"1450",2034,"Small RZ 6 month closure",22.4250807031466
+"1451",2035,"Small RZ 6 month closure",23.1348043583111
+"1452",2036,"Small RZ 6 month closure",23.9432449933705
+"1453",2037,"Small RZ 6 month closure",24.8329414163482
+"1454",2038,"Small RZ 6 month closure",25.7263880746263
+"1455",2039,"Small RZ 6 month closure",26.6999743045693
+"1456",2040,"Small RZ 6 month closure",27.2935853973554
+"1457",2041,"Small RZ 6 month closure",27.9761340065938
+"1458",2042,"Small RZ 6 month closure",28.6566717236296
+"1459",2043,"Small RZ 6 month closure",29.2438676715786
+"1460",2044,"Small RZ 6 month closure",29.7792752954711
+"1461",2045,"Small RZ 6 month closure",30.0582810218766
+"1462",2046,"Small RZ 6 month closure",30.173031878474
+"1463",2047,"Small RZ 6 month closure",30.6577737560003
+"1464",2048,"Small RZ 6 month closure",31.4376366616355
+"1465",2049,"Small RZ 6 month closure",31.8909872481752
+"1466",2050,"Small RZ 6 month closure",32.3201285779225
+"1467",2051,"Small RZ 6 month closure",32.3385030035745
+"1468",2052,"Small RZ 6 month closure",32.4875536948432
+"1469",2053,"Small RZ 6 month closure",32.8963328414389
+"1470",2054,"Small RZ 6 month closure",33.2711192678039
+"1471",2055,"Small RZ 6 month closure",33.5573346119966
+"1472",2056,"Small RZ 6 month closure",34.0836463425585
+"1473",2057,"Small RZ 6 month closure",34.2761431318447
+"1474",2058,"Small RZ 6 month closure",34.0825916453564
+"1475",2059,"Small RZ 6 month closure",34.0454284581463
+"1476",2060,"Small RZ 6 month closure",34.218061064667
+"1477",2025,"Small RZ 7 month closure",14.7002841588054
+"1478",2026,"Small RZ 7 month closure",15.4879109908345
+"1479",2027,"Small RZ 7 month closure",16.5357755899496
+"1480",2028,"Small RZ 7 month closure",17.6017980832591
+"1481",2029,"Small RZ 7 month closure",18.6378382384203
+"1482",2030,"Small RZ 7 month closure",19.6634420279785
+"1483",2031,"Small RZ 7 month closure",20.6913116990051
+"1484",2032,"Small RZ 7 month closure",21.8170305186566
+"1485",2033,"Small RZ 7 month closure",22.8736181975153
+"1486",2034,"Small RZ 7 month closure",23.6692685997551
+"1487",2035,"Small RZ 7 month closure",24.476226452483
+"1488",2036,"Small RZ 7 month closure",25.3489009981911
+"1489",2037,"Small RZ 7 month closure",26.4087056816936
+"1490",2038,"Small RZ 7 month closure",27.3848905653024
+"1491",2039,"Small RZ 7 month closure",28.489752945078
+"1492",2040,"Small RZ 7 month closure",29.140636714037
+"1493",2041,"Small RZ 7 month closure",30.0101064114117
+"1494",2042,"Small RZ 7 month closure",30.8095050771099
+"1495",2043,"Small RZ 7 month closure",31.4160623619429
+"1496",2044,"Small RZ 7 month closure",32.1290934077209
+"1497",2045,"Small RZ 7 month closure",32.4141175896982
+"1498",2046,"Small RZ 7 month closure",32.5667563889804
+"1499",2047,"Small RZ 7 month closure",33.0109711062003
+"1500",2048,"Small RZ 7 month closure",33.9612049044689
+"1501",2049,"Small RZ 7 month closure",34.4232739425415
+"1502",2050,"Small RZ 7 month closure",35.0223391322495
+"1503",2051,"Small RZ 7 month closure",35.0859522827784
+"1504",2052,"Small RZ 7 month closure",35.3246685688381
+"1505",2053,"Small RZ 7 month closure",35.6573546763037
+"1506",2054,"Small RZ 7 month closure",36.1394556813467
+"1507",2055,"Small RZ 7 month closure",36.5395640416394
+"1508",2056,"Small RZ 7 month closure",37.1103670483059
+"1509",2057,"Small RZ 7 month closure",37.2841541376492
+"1510",2058,"Small RZ 7 month closure",37.1110441356269
+"1511",2059,"Small RZ 7 month closure",37.0492370147844
+"1512",2060,"Small RZ 7 month closure",37.2634175507224
+"1513",2025,"Small RZ 9 month closure",14.7002841588054
+"1514",2026,"Small RZ 9 month closure",15.9826583576426
+"1515",2027,"Small RZ 9 month closure",17.3046610539594
+"1516",2028,"Small RZ 9 month closure",18.6099714290007
+"1517",2029,"Small RZ 9 month closure",19.8634239682803
+"1518",2030,"Small RZ 9 month closure",21.0987666700209
+"1519",2031,"Small RZ 9 month closure",22.3289273258299
+"1520",2032,"Small RZ 9 month closure",23.6175083123042
+"1521",2033,"Small RZ 9 month closure",24.9444597979778
+"1522",2034,"Small RZ 9 month closure",26.0094731221957
+"1523",2035,"Small RZ 9 month closure",27.0476797777922
+"1524",2036,"Small RZ 9 month closure",28.0725702465675
+"1525",2037,"Small RZ 9 month closure",29.388734482712
+"1526",2038,"Small RZ 9 month closure",30.6351056197803
+"1527",2039,"Small RZ 9 month closure",31.938539517612
+"1528",2040,"Small RZ 9 month closure",32.9260223809129
+"1529",2041,"Small RZ 9 month closure",34.0347786633199
+"1530",2042,"Small RZ 9 month closure",34.9533086121893
+"1531",2043,"Small RZ 9 month closure",35.6618868252011
+"1532",2044,"Small RZ 9 month closure",36.7775876547529
+"1533",2045,"Small RZ 9 month closure",37.1786734224786
+"1534",2046,"Small RZ 9 month closure",37.413397661271
+"1535",2047,"Small RZ 9 month closure",37.9000502594951
+"1536",2048,"Small RZ 9 month closure",39.0867957193727
+"1537",2049,"Small RZ 9 month closure",39.5230122536733
+"1538",2050,"Small RZ 9 month closure",40.3580558128696
+"1539",2051,"Small RZ 9 month closure",40.703316033573
+"1540",2052,"Small RZ 9 month closure",41.0467559493979
+"1541",2053,"Small RZ 9 month closure",41.2736922390653
+"1542",2054,"Small RZ 9 month closure",42.0066771686073
+"1543",2055,"Small RZ 9 month closure",42.3827981591307
+"1544",2056,"Small RZ 9 month closure",43.1761918660822
+"1545",2057,"Small RZ 9 month closure",43.4184091024754
+"1546",2058,"Small RZ 9 month closure",43.3640484424555
+"1547",2059,"Small RZ 9 month closure",43.3013742876067
+"1548",2060,"Small RZ 9 month closure",43.6007929900623

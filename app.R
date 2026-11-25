@@ -208,7 +208,8 @@ ui <- page_sidebar(
               tags$li("Differences between scenarios are given in percentage points (pts) of unfished."),
               tags$li("No spawning closure keeps the existing no-take zones with no closure. 'No new recovery zones'
                  keeps the existing no-take zones and adds the spawning closure."),
-              tags$li("Some scenarios, including the 4-month (Dec–Mar) and 8-month (Oct–May) closures and recovery zones
+              tags$li(if (all(is.na(S$rel_lo))) "All scenarios shown are medians only, without a 95% interval." else
+                "Some scenarios, including the 4-month (Dec–Mar), 8-month (Oct–May) and 10-month closures and recovery zones
                  with no spawning closure, are medians only, without a 95% interval.")
       ),
       div(class = "small text-secondary refs",

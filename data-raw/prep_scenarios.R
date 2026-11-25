@@ -22,8 +22,8 @@ files <- c(biomass = "data-raw/median_biomass_scenarios_1.csv",
 extra <- tribble(
   ~path,                                              ~metric,   ~pct,
   "data-raw/median_biomass_scenarios2_1.csv",         "biomass", TRUE,   # recovery zones with no temporal closure
-  "data-raw/median_biomass_scenarios3.csv",           "biomass", TRUE,   # adds 4- and 8-month closures
-  "data-raw/median_egg_production_scenarios3.csv",    "eggs",    FALSE   # adds 4- and 8-month closures, RZ no closure
+  "data-raw/median_biomass_scenarios4.csv",           "biomass", TRUE,   # adds 4-, 8- and 10-month closures
+  "data-raw/median_egg_production_scenarios4.csv",    "eggs",    FALSE   # adds 4-, 8- and 10-month closures, RZ no closure
 )
 
 # use whichever input files are in data-raw/

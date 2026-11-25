@@ -12,7 +12,7 @@ library(dplyr)
 library(readr)
 
 RZ_LEVELS <- c("None", "Small", "Medium", "Large", "Extra large")  # recovery-zone options ("None" = existing NTZs only)
-CLOSURES  <- c(0L, 4L, 5L, 6L, 7L, 8L, 9L)          # spawning-closure lengths (months; 0 = no closure). The app shows
+CLOSURES  <- c(0L, 4L, 5L, 6L, 7L, 8L, 9L, 10L)          # spawning-closure lengths (months; 0 = no closure). The app shows
 # only those that are in data/scenarios.csv
 CLOSURE_MONTHS <- c(`4` = "Dec–Mar", `8` = "Oct–May")  # months closed, where known
 CL_FIXED  <- 8L                                     # closure (no new zones) that can be kept on the charts as a comparison

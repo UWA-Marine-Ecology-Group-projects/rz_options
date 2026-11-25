@@ -23,10 +23,10 @@ The old digitised files (`data/aston2025_*.csv`) are no longer used and can be d
 
 | Recovery zones | Closure |
 |---|---|
-| None (existing NTZs only), Small, Medium, Large, Extra large (40% of mapped reef) | None, 5, 6, 7, 9 months |
+| None (existing NTZs only), Small, Medium, Large, Extra large (40% of mapped reef) | None, 4, 5, 6, 7, 8, 9, 10 months |
 
-No zones with no closure is the "no spawning closure" scenario (business as usual). Recovery zones with no closure
-have spawning biomass only, without a 95% interval; every other scenario has both metrics with intervals, 2025–2060.
+No zones with no closure is the "no spawning closure" scenario (business as usual). With only the medians-only
+files in `data-raw/` (as now), every scenario is a median without a 95% interval, 2025–2060.
 The "No NTZs" scenarios (all existing NTZs removed) are not shown.
 
 ## Requirements
@@ -50,7 +50,7 @@ On shinyapps.io or Posit Connect: `rsconnect::deployApp("rz_options")`.
 
 ## Using the dashboard
 
-- Use the two sliders in the sidebar to pick a closure length (None, 5, 6, 7 or 9 months) and a recovery-zone
+- Use the two sliders in the sidebar to pick a closure length (None or 4 to 10 months) and a recovery-zone
   option (None to Extra large). The sliders snap to the modelled options only.
 - Each chart shows business as usual (grey dashed), the closure with no new zones (orange) and the closure with
   the chosen recovery zones (blue), as a percentage of unfished. The dotted line is the common 2025 starting level.
@@ -63,5 +63,5 @@ Values to check (2060, % of unfished): business as usual 25% biomass and 41% egg
 ## Updating the data
 
 Put new model output in `data-raw/` as `median_biomass_scenarios_1.csv` and `median_egg_production_scenarios_1.csv`,
-plus `median_biomass_scenarios2_1.csv` (the no-closure runs), then run `source("data-raw/prep_scenarios.R")`
+plus the medians-only files listed in `extra` at the top of the script (currently `*_scenarios4.csv`), then run `source("data-raw/prep_scenarios.R")`
 from the `rz_options` folder.
